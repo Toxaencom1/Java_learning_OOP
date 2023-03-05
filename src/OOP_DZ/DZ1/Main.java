@@ -55,7 +55,7 @@ import java.time.LocalDate;
  */
 public class Main {
     public static void main(String[] args) {
-        Milk Milk = new Milk("Adal", 500, 2, "piece", 0.75, 3.2,
+        Milk milk = new Milk("Adal", 500, 2, "piece", 0.75, 3.2,
                 LocalDate.of(2023, 12, 1));
         Drinks lemonade = new Lemonade("Buratino", 150, 3, "piece", 1);
         Bread bread = new Bread("Factory", 100, 2, "piece",
@@ -73,21 +73,15 @@ public class Main {
         Food canndedFood = new Food("Tuna", 550, 1, "canned",
                 LocalDate.of(2024, 12, 1));
         Drinks alcohol = new Drinks("Vodka: Kanoplyanka", 2500, 1, "piece", 1);
-        HygieneItems sponge = new HygieneItems("Sponge: Ya samaya",980,1,
-                "package",100);
-        BabyProducts babyBath = new BabyProducts("Baby bath: HappyBaby",15000,1,"piece",
-                0,true);
-        Program.showGoods(Milk);
-        Program.showGoods(lemonade);
-        Program.showGoods(bread);
-        Program.showGoods(eggs);
-        Program.showGoods(pacifier);
-        Program.showGoods(nappies);
-        Program.showGoods(mask);
-        Program.showGoods(toiletPaper);
-        Program.showGoods(canndedFood);
-        Program.showGoods(alcohol);
-        Program.showGoods(sponge);
-        Program.showGoods(babyBath);
+        HygieneItems sponge = new HygieneItems("Sponge: Ya samaya", 980, 1,
+                "package", 100);
+        BabyProducts babyBath = new BabyProducts("Baby bath: HappyBaby", 15000, 1, "piece",
+                0, true);
+
+        Goods[] my_goods = new Goods[]{milk, lemonade, bread, eggs, pacifier, nappies, mask,
+                toiletPaper, canndedFood, alcohol, sponge, babyBath};
+        for (Goods item : my_goods) {
+            Program.showGoods(item);
+        }
     }
 }
