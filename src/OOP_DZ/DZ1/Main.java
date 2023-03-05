@@ -57,7 +57,7 @@ public class Main {
     public static void main(String[] args) {
         Milk Milk = new Milk("Adal", 500, 2, "piece", 0.75, 3.2,
                 LocalDate.of(2023, 12, 1));
-        Drinks buratino = new Lemonade("Buratino", 150, 3, "piece", 1);
+        Drinks lemonade = new Lemonade("Buratino", 150, 3, "piece", 1);
         Bread bread = new Bread("Factory", 100, 2, "piece",
                 LocalDate.of(2023, 12, 1), "1st grade");
         Eggs eggs = new Eggs("Ak-su", 1000, 1, "box",
@@ -72,9 +72,13 @@ public class Main {
 
         Food canndedFood = new Food("Tuna", 550, 1, "canned",
                 LocalDate.of(2024, 12, 1));
-
+        Drinks alcohol = new Drinks("Vodka: Kanoplyanka", 2500, 1, "piece", 1);
+        HygieneItems sponge = new HygieneItems("Sponge: Ya samaya",980,1,
+                "package",100);
+        BabyProducts babyBath = new BabyProducts("HappyBaby",15000,1,"piece",
+                0,true);
         Program.showGoods(Milk);
-        Program.showGoods(buratino);
+        Program.showGoods(lemonade);
         Program.showGoods(bread);
         Program.showGoods(eggs);
         Program.showGoods(pacifier);
@@ -82,5 +86,8 @@ public class Main {
         Program.showGoods(mask);
         Program.showGoods(toiletPaper);
         Program.showGoods(canndedFood);
+        Program.showGoods(alcohol);
+        Program.showGoods(sponge);
+        Program.showGoods(babyBath);
     }
 }
