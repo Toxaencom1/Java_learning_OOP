@@ -75,7 +75,7 @@ public class Main {
         Drinks alcohol = new Drinks("Vodka: Kanoplyanka", 2500, 1, "piece", 1);
         HygieneItems sponge = new HygieneItems("Sponge: Ya samaya",980,1,
                 "package",100);
-        BabyProducts babyBath = new BabyProducts("HappyBaby",15000,1,"piece",
+        BabyProducts babyBath = new BabyProducts("Baby bath: HappyBaby",15000,1,"piece",
                 0,true);
         Program.showGoods(Milk);
         Program.showGoods(lemonade);
