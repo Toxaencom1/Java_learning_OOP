@@ -6,4 +6,10 @@ public class HygieneItems extends Goods{
         super(name,cost,quantity,measure);
         this.quantityPerPackage=quantityPerPackage;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", Quantity per package=" + quantityPerPackage;
+    }
 }

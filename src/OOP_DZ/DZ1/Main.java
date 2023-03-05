@@ -1,4 +1,7 @@
 package OOP_DZ.DZ1;
+
+import java.time.LocalDate;
+
 /*
 Реализовать класс товар, содержащий следующие свойства:
 1. Название
@@ -52,6 +55,30 @@ package OOP_DZ.DZ1;
  */
 public class Main {
     public static void main(String[] args) {
-
+        Milk adalMilk = new Milk("Adal",500,2,"piece",0.75,3.2,
+                LocalDate.of(2023,12,1));
+        Lemonade buratino = new Lemonade("Buratino",150,3,"piece",1);
+        Bread bread = new Bread("Factory",100,2,"piece",
+                LocalDate.of(2023,12,1),"1st grade");
+        Eggs eggs = new Eggs("Ak-su",1000,1,"box",
+                LocalDate.of(2023,12,1),10);
+        BabyProducts pacifier = new Pacifier("Aguu", 1500, 1,
+                "blister",0,true);
+        Nappies nappies = new Nappies("Pampers", 5600,2,"package",1,
+                true,2,4,8,"breathable");
+        HygieneItems mask = new Masks("Medical Mask", 200,5,"package", 3);
+        ToiletPaper toiletPaper = new ToiletPaper("Kari", 2500,2,"package",
+                6,3);
+        showGoods(adalMilk);
+        showGoods(buratino);
+        showGoods(bread);
+        showGoods(eggs);
+        showGoods(pacifier);
+        showGoods(nappies);
+        showGoods(mask);
+        showGoods(toiletPaper);
+    }
+    public static void showGoods(Goods goods){
+        System.out.println(goods);
     }
 }

@@ -12,4 +12,13 @@ public class Goods {
         this.quantity = quantity;
         this.measure = measure;
     }
+
+    @Override
+    public String toString() {
+        return "Goods: " +getClass().getSimpleName()+", "+
+                "Name='" + name + '\'' +
+                ", Cost=" + cost +" ₸"+
+                ", Quantity=" + quantity +
+                ", Measure='" + measure + '\'';
+    }
 }
