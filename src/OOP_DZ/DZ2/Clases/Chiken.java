@@ -2,11 +2,13 @@ package OOP_DZ.DZ2.Clases;
 
 import OOP_DZ.DZ2.Interfaces.ShowAffection;
 
+
 public class Chiken extends Birds implements ShowAffection {
 
-    public Chiken(double animalHeigth, double animalWeight, String animalEyeColor) {
-        super(animalHeigth, animalWeight, animalEyeColor, 0);
+    public Chiken(String nameInZoo, double animalHeigth, double animalWeight, String animalEyeColor) {
+        super(nameInZoo, animalHeigth, animalWeight, animalEyeColor, 0);
     }
+
 
     @Override
     public void makeNoize() {

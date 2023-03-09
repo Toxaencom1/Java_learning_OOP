@@ -9,8 +9,8 @@ public abstract class WildAnimal extends Animal implements Hunting {
     protected String habitat; //Место обитания
     protected LocalDate locationDate;
 
-    protected WildAnimal(double animalHeight, double animalWeight, String animalEyeColor, String habitat, LocalDate locationDate) {
-        super(animalHeight, animalWeight, animalEyeColor);
+    protected WildAnimal(String nameInZoo, double animalHeight, double animalWeight, String animalEyeColor, String habitat, LocalDate locationDate) {
+        super(nameInZoo, animalHeight, animalWeight, animalEyeColor);
         this.habitat = habitat;
         this.locationDate = locationDate;
     }

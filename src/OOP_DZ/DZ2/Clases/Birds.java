@@ -2,12 +2,13 @@ package OOP_DZ.DZ2.Clases;
 
 import OOP_DZ.DZ2.Interfaces.Fly;
 
+
 public abstract class Birds extends Animal implements Fly {
 
     protected int flyHeight;
 
-    protected Birds(double animalHeight, double animalWeight, String animalEyeColor, int flyHeight) {
-        super(animalHeight, animalWeight, animalEyeColor);
+    protected Birds(String nameInZoo, double animalHeight, double animalWeight, String animalEyeColor, int flyHeight) {
+        super(nameInZoo, animalHeight, animalWeight, animalEyeColor);
         this.flyHeight = flyHeight;
     }
 
@@ -27,9 +28,9 @@ public abstract class Birds extends Animal implements Fly {
     }
 
     public void setFlyHeight(Integer flyHeight) {
-        if(flyHeight>=1){
+        if (flyHeight >= 1) {
             this.flyHeight = flyHeight;
-        }else {
+        } else {
             System.out.println("Can`t fly lower than one meter");
         }
     }

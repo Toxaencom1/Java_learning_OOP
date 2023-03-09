@@ -1,8 +1,6 @@
 package OOP_DZ.DZ2;
 
-import OOP_DZ.DZ2.Clases.*;
-
-import java.time.LocalDate;
+import java.util.Scanner;
 
 /*
 На языке Java реализовать интерфейс "Животное" со следующими полями:
@@ -70,60 +68,73 @@ https://gospodaretsva.com/urok-26-udalenie-elementa-iz-odnomernogo-massiva.html
  */
 public class Main {
     public static void main(String[] args) {
-        Wolf wolf1 = new Wolf(2, 30, "blue",
-                "Forests", LocalDate.of(2018, 1, 1), true);
-        System.out.println(wolf1.info());
-        wolf1.goHunting();
-        wolf1.makeNoize();
-        System.out.println();
+        System.out.println("Hello visitor! Welcome to our Zoo! Make your choice, or type 'exit' to exit");
+        Zoo zoo = new Zoo();
+        while (true) {
+            Menu.showMenu(Menu.mainMenu());
+            Scanner scanner = new Scanner(System.in);
+            int menuChoice = Validator.valMenuChoice(scanner.nextLine(), 8);
+            switch (menuChoice) {
+                case 1 -> {
+                    System.out.println();
+                    zoo.showAnimalsId(zoo.getTempZoolist());
+                    System.out.print("\nWhich animal to add?: ");
+                    int addAnimal = Validator.valInt(scanner.nextLine());
+                    System.out.println();
+                    zoo.addAnimal(addAnimal);
+                }
+                case 2 -> {
+                    System.out.println();
+                    zoo.showAnimalsId(zoo.getZoolist());
+                    System.out.print("\nWhich animal to remove?: ");
+                    int removeAnimal = Validator.valInt(scanner.nextLine());
+                    System.out.println();
+                    zoo.removeAnimal(removeAnimal);
+                }
+                case 3 -> {
+                    System.out.println();
+                    zoo.showAnimalsId(zoo.getZoolist());
+                    System.out.print("\nWhich animal want to see?: ");
+                    int showAnimalInfo = Validator.valInt(scanner.nextLine());
+                    zoo.getInfoAboutAnimal(showAnimalInfo);
+                    enterToContinue();
+                }
+                case 4 -> {
+                    System.out.println();
+                    zoo.getInfoAboutAllAnimal();
+                    enterToContinue();
+                }
+                case 5 -> {
+                    System.out.println();
+                    zoo.showAnimalsId(zoo.getZoolist());
+                    System.out.print("\nWhich of animal makes sound?: ");
+                    int makeSoundAnimal = Validator.valInt(scanner.nextLine());
+                    zoo.makeAnimalNoize(makeSoundAnimal);
+                    enterToContinue();
+                }
+                case 6 -> {
+                    System.out.println();
+                    zoo.makeAllNoize();
+                    System.out.println();
+                    enterToContinue();
+                }
+                case 7 -> {
+                    System.out.println();
+                    zoo.showAnimalsId(zoo.getZoolist());
+                    System.out.print("\nWhich kind of animal to show what it can do?: ");
+                    int whatAnimalCanDo = Validator.valInt(scanner.nextLine());
+                    zoo.whatAnimalDo(whatAnimalCanDo);
+                    enterToContinue();
+                }
+                case 8 -> System.exit(0);
+            }
+        }
 
-        Chiken chicken1 = new Chiken(0.2, 1, "yellow");
-        System.out.println(chicken1.info());
-        System.out.println(chicken1.showAffection());
-        chicken1.makeNoize();
-        chicken1.fly();
-        System.out.println();
-
-        Stork stork1 = new Stork(0.6, 4, "Grey", 500);
-        System.out.println(stork1.info());
-        stork1.goHunting();
-        stork1.fly();
-        stork1.makeNoize();
-        System.out.println();
-
-        Dog dog1 = new Dog(0.8, 20, "Brown", "Graf", "Doberman", "Brown", true, LocalDate.of(2015, 1, 1), false);
-        System.out.println(dog1.info());
-        dog1.train();
-        System.out.println(dog1.showAffection());
-        dog1.makeNoize();
-        System.out.println();
-
-        Tiger tiger1 = new Tiger(1.5, 60, "Yellow", "Zoo", LocalDate.of(2010, 1, 1));
-        System.out.println(tiger1.info());
-        tiger1.train();
-        tiger1.goHunting();
-        System.out.println(tiger1.showAffection());
-        tiger1.makeNoize();
-        System.out.println();
-
-        Cat cat1 = new Cat(0.2,1.2,"Green-Gray","Cassie","Canadian Sphynx","",
-                true,LocalDate.of(2008,1,1),false);
-        System.out.println(cat1.info());
-        cat1.train();
-        System.out.println(cat1.showAffection());
-        cat1.makeNoize();
-        System.out.println();
-
-        Cat cat2 = new Cat(0.2,1.2,"Green-Gray","Cassie","Canadian Sphynx","Grey",
-                false,LocalDate.of(2008,1,1),true);
-        System.out.println(cat2.info());
-//        System.out.println(cat2.info());
-
-        cat2.train();
-        System.out.println(cat2.showAffection());
-        cat2.makeNoize();
-        System.out.println();
     }
 
-
+    static void enterToContinue() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Push 'Enter' to continue");
+        String temp = scanner.nextLine();
+    }
 }

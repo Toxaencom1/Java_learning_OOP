@@ -7,9 +7,10 @@ import java.time.LocalDate;
 public class Cat extends Pet implements Train {
     private Boolean fur;
 
-    public Cat(double animalHeight, double animalWeight, String animalEyeColor, String nickName, String species,
-               String furColor, boolean vaccination, LocalDate birthDate, Boolean fur) {
-        super(animalHeight, animalWeight, animalEyeColor, nickName, species, furColor, vaccination, birthDate);
+    public Cat(String nameInZoo, double animalHeight, double animalWeight, String animalEyeColor, String nickName,
+               String species, String furColor, boolean vaccination, LocalDate birthDate, Boolean fur) {
+        super(nameInZoo, animalHeight, animalWeight, animalEyeColor, nickName,
+                species, furColor, vaccination, birthDate);
         this.fur = fur;
     }
 

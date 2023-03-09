@@ -7,9 +7,9 @@ import java.time.LocalDate;
 public class Wolf extends WildAnimal implements Hunting {
     private boolean alfa;
 
-    public Wolf(double animalHeight, double animalWeight, String animalEyeColor, String habitat,
+    public Wolf(String nameInZoo, double animalHeight, double animalWeight, String animalEyeColor, String habitat,
                 LocalDate locationDate, Boolean alfa) {
-        super(animalHeight, animalWeight, animalEyeColor, habitat, locationDate);
+        super(nameInZoo, animalHeight, animalWeight, animalEyeColor, habitat, locationDate);
         this.alfa = alfa;
     }
 

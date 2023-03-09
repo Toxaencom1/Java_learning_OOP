@@ -11,9 +11,9 @@ public abstract class Pet extends Animal implements ShowAffection {
     protected boolean vaccination;
     protected final LocalDate birthDate;
 
-    protected Pet(double animalHeight, double animalWeight, String animalEyeColor, String nickName, String species,
+    protected Pet(String nameInZoo, double animalHeight, double animalWeight, String animalEyeColor, String nickName, String species,
                String furColor, boolean vaccination, LocalDate birthDate) {
-        super(animalHeight, animalWeight, animalEyeColor);
+        super(nameInZoo, animalHeight, animalWeight, animalEyeColor);
         this.nickName = nickName;
         this.species = species;
         this.furColor = furColor;

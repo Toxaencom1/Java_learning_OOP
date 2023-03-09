@@ -5,8 +5,8 @@ import OOP_DZ.DZ2.Interfaces.Hunting;
 
 //Аист
 public class Stork extends Birds implements Hunting, Fly {
-    public Stork(double animalHeight, double animalWeight, String animalEyeColor, int flyHeigth) {
-        super(animalHeight, animalWeight, animalEyeColor, flyHeigth);
+    public Stork(String nameInZoo, double animalHeight, double animalWeight, String animalEyeColor, int flyHeigth) {
+        super(nameInZoo, animalHeight, animalWeight, animalEyeColor, flyHeigth);
     }
 
     @Override
