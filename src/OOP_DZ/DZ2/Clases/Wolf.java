@@ -7,15 +7,15 @@ import java.time.LocalDate;
 public class Wolf extends WildAnimal implements Hunting {
     boolean alfa;
 
-    public Wolf(int animalHeight, int animalWeight, String animalEyeColor, String habitat,
+    public Wolf(double animalHeight, double animalWeight, String animalEyeColor, String habitat,
                 LocalDate locationDate, Boolean alfa) {
         super(animalHeight, animalWeight, animalEyeColor, habitat, locationDate);
         this.alfa = alfa;
     }
 
     @Override
-    void makeNoize() {
-        System.out.println("Aaauuuuuuuuuuu!, whof whof");
+    public void makeNoize() {
+        System.out.println("Aaauuuuuuuuuuu!, hrrrrr");
     }
 
     @Override

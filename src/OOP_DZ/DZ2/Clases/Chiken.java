@@ -2,10 +2,10 @@ package OOP_DZ.DZ2.Clases;
 
 import OOP_DZ.DZ2.Interfaces.ShowAffection;
 
-public class Chiken extends Bird_A  implements ShowAffection {
+public class Chiken extends Bird_A implements ShowAffection {
 
-    public Chiken(int animalHeigth, int animalWeight, String animalEyeColor) {
-        super(animalHeigth, animalWeight, animalEyeColor, true, 0);
+    public Chiken(double animalHeigth, double animalWeight, String animalEyeColor) {
+        super(animalHeigth, animalWeight, animalEyeColor, 0);
     }
 
     @Override
@@ -14,7 +14,7 @@ public class Chiken extends Bird_A  implements ShowAffection {
     }
 
     @Override
-    public void showAffection() {
-        System.out.println("I love you, Owner: buk, buk, ba-gawk!");
+    public String showAffection() {
+        return "I love you, Owner: buk, buk, ba-gawk!";
     }
 }

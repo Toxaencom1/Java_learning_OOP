@@ -5,24 +5,26 @@ import java.time.LocalDate;
 public class Dog extends Pet {
     Boolean trained;
 
-    public Dog(int animalHeight, int animalWeight, String animalEyeColor, String nickName, String species, String furColor, boolean vaccination, LocalDate birthDate, Boolean trained) {
+    public Dog(double animalHeight, double animalWeight, String animalEyeColor, String nickName, String species,
+               String furColor, boolean vaccination, LocalDate birthDate, Boolean trained) {
         super(animalHeight, animalWeight, animalEyeColor, nickName, species, furColor, vaccination, birthDate);
         this.trained = trained;
     }
 
-    void train() {
+    public void train() {
         System.out.println("Let`s train, Give me a paw....");
         trained = true;
+        System.out.println("Now, I can follow your orders");
     }
 
     @Override
-    void makeNoize() {
+    public void makeNoize() {
         System.out.println("Whoof whoof");
     }
 
     @Override
-    void showAffection() {
-        System.out.println("I love you, Owner: Whoof whoof");
+    public String showAffection() {
+        return super.showAffection()+"Whoof whoof";
     }
 
     @Override

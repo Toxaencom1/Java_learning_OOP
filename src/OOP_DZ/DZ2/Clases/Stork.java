@@ -4,12 +4,12 @@ import OOP_DZ.DZ2.Interfaces.Hunting;
 
 //Аист
 public class Stork extends Bird_A implements Hunting {
-    public Stork(int animalHeigth, int animalWeight, String animalEyeColor, Integer flyHeigth) {
-        super(animalHeigth, animalWeight, animalEyeColor, false, flyHeigth);
+    public Stork(double animalHeigth, double animalWeight, String animalEyeColor, Integer flyHeigth) {
+        super(animalHeigth, animalWeight, animalEyeColor, flyHeigth);
     }
 
     @Override
-    void makeNoize() {
+    public void makeNoize() {
         System.out.println("We are usually silent");
     }
 

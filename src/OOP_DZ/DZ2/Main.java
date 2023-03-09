@@ -1,7 +1,6 @@
 package OOP_DZ.DZ2;
 
-import OOP_DZ.DZ2.Clases.WildAnimal;
-import OOP_DZ.DZ2.Clases.Wolf;
+import OOP_DZ.DZ2.Clases.*;
 
 import java.time.LocalDate;
 
@@ -71,10 +70,64 @@ https://gospodaretsva.com/urok-26-udalenie-elementa-iz-odnomernogo-massiva.html
  */
 public class Main {
     public static void main(String[] args) {
-        WildAnimal wolf1 = new Wolf(2,30,"blue",
-                "Forests", LocalDate.of(2018,1,1),true);
+        Wolf wolf1 = new Wolf(2, 30, "blue",
+                "Forests", LocalDate.of(2018, 1, 1), true);
         System.out.println(wolf1.info());
         wolf1.goHunting();
+        wolf1.makeNoize();
+        System.out.println();
+
+        Chiken chicken1 = new Chiken(0.2, 1, "yellow");
+        System.out.println(chicken1.info());
+        System.out.println(chicken1.showAffection());
+        chicken1.makeNoize();
+        chicken1.fly();
+        System.out.println();
+
+        Stork stork1 = new Stork(0.6, 4, "black", 500);
+        System.out.println(stork1.info());
+        stork1.goHunting();
+        stork1.makeNoize();
+        stork1.fly();
+        System.out.println();
+
+        Dog dog1 = new Dog(0.8, 20, "Brown", "Graf", "Doberman", "Brown", true, LocalDate.of(2015, 1, 1), false);
+        System.out.println(dog1.info());
+        dog1.train();
+        System.out.println(dog1.showAffection());
+        dog1.makeNoize();
+        System.out.println();
+
+        Tiger tiger1 = new Tiger(1.5, 60, "Yellow", "Zoo", LocalDate.of(2010, 1, 1));
+        System.out.println(tiger1.info());
+        tiger1.goHunting();
+        System.out.println(tiger1.showAffection());
+        tiger1.makeNoize();
+        System.out.println();
+
+        Cat cat1 = new Cat(0.2,1.2,"Green-Gray","Cassie","Canadian Sphynx","black",
+                true,LocalDate.of(2008,1,1),false);
+        System.out.println(cat1.info());
+        System.out.println(cat1.showAffection());
+        cat1.makeNoize();
+        System.out.println();
+
+        Animal unknownAnimal = new Animal(0.1,0.3,"Black") {
+            @Override
+            public void makeNoize() {
+                System.out.println("Squuak");
+            }
+
+            @Override
+            public String info() {
+                return "I am unknown Animal"  +
+                        ", My height is = " + getAnimalHeight() + "M" +
+                        ", My weight is = " + getAnimalWeight() + "kg" +
+                        ", My eye color is '" + getAnimalEyeColor()+ '\'';
+            }
+        };
+        System.out.println(unknownAnimal.info());
+
     }
 
 

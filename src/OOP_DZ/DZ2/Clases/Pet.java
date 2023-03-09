@@ -1,15 +1,17 @@
 package OOP_DZ.DZ2.Clases;
 
+import OOP_DZ.DZ2.Interfaces.ShowAffection;
+
 import java.time.LocalDate;
 
-public abstract class Pet extends Animal{
+public abstract class Pet extends Animal implements ShowAffection {
     String nickName;
     String species;
     String furColor;
     boolean vaccination;
     LocalDate birthDate;
 
-    public Pet(int animalHeight, int animalWeight, String animalEyeColor, String nickName, String species,
+    public Pet(double animalHeight, double animalWeight, String animalEyeColor, String nickName, String species,
                String furColor, boolean vaccination, LocalDate birthDate) {
         super(animalHeight, animalWeight, animalEyeColor);
         this.nickName = nickName;
@@ -18,19 +20,23 @@ public abstract class Pet extends Animal{
         this.vaccination = vaccination;
         this.birthDate = birthDate;
     }
-    abstract void showAffection();
+
+    public String showAffection() {
+        return "I Love you, Owner: ";
+    }
+
 
     @Override
     public String info() {
         String vacc;
-        if (vaccination){
+        if (vaccination) {
             vacc = ", I am vaccinated!";
         } else {
             vacc = ", I am not vaccinated(((";
         }
-        return super.info()+", My nickName is'" + nickName + '\'' +
-                ", My species is'" + species + '\'' +
-                ",  MY fur color is'" + furColor + '\'' +
+        return super.info() + ", My nickName is '" + nickName + '\'' +
+                ", My species is '" + species + '\'' +
+                ",  My fur color is '" + furColor + '\'' +
                 vacc +
                 ", my birth date is " + birthDate;
     }
