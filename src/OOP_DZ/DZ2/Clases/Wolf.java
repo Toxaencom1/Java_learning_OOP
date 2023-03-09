@@ -5,7 +5,7 @@ import OOP_DZ.DZ2.Interfaces.Hunting;
 import java.time.LocalDate;
 
 public class Wolf extends WildAnimal implements Hunting {
-    boolean alfa;
+    private boolean alfa;
 
     public Wolf(double animalHeight, double animalWeight, String animalEyeColor, String habitat,
                 LocalDate locationDate, Boolean alfa) {
@@ -32,5 +32,13 @@ public class Wolf extends WildAnimal implements Hunting {
     @Override
     public void goHunting() {
         System.out.println("I need food! i need to hunt");
+    }
+
+    public boolean isAlfa() {
+        return alfa;
+    }
+
+    public void setAlfa(boolean alfa) {
+        this.alfa = alfa;
     }
 }

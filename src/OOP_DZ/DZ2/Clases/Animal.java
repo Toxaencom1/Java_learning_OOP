@@ -1,9 +1,9 @@
 package OOP_DZ.DZ2.Clases;
 
 public abstract class Animal {
-    double animalHeight;
-    double animalWeight;
-    String animalEyeColor;
+    protected double animalHeight;
+    protected double animalWeight;
+    protected final String animalEyeColor;
 
     protected Animal(double animalHeight, double animalWeight, String animalEyeColor) {
         this.animalHeight = animalHeight;
@@ -30,5 +30,13 @@ public abstract class Animal {
 
     public String getAnimalEyeColor() {
         return animalEyeColor;
+    }
+
+    public void setAnimalHeight(double animalHeight) {
+        this.animalHeight = animalHeight;
+    }
+
+    public void setAnimalWeight(double animalWeight) {
+        this.animalWeight = animalWeight;
     }
 }

@@ -106,12 +106,22 @@ public class Main {
         tiger1.makeNoize();
         System.out.println();
 
-        Cat cat1 = new Cat(0.2,1.2,"Green-Gray","Cassie","Canadian Sphynx","black",
+        Cat cat1 = new Cat(0.2,1.2,"Green-Gray","Cassie","Canadian Sphynx","",
                 true,LocalDate.of(2008,1,1),false);
         System.out.println(cat1.info());
         cat1.train();
         System.out.println(cat1.showAffection());
         cat1.makeNoize();
+        System.out.println();
+
+        Cat cat2 = new Cat(0.2,1.2,"Green-Gray","Cassie","Canadian Sphynx","Grey",
+                false,LocalDate.of(2008,1,1),true);
+        System.out.println(cat2.info());
+//        System.out.println(cat2.info());
+
+        cat2.train();
+        System.out.println(cat2.showAffection());
+        cat2.makeNoize();
         System.out.println();
     }
 

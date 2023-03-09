@@ -5,7 +5,7 @@ import OOP_DZ.DZ2.Interfaces.Train;
 import java.time.LocalDate;
 
 public class Cat extends Pet implements Train {
-    Boolean fur;
+    private Boolean fur;
 
     public Cat(double animalHeight, double animalWeight, String animalEyeColor, String nickName, String species,
                String furColor, boolean vaccination, LocalDate birthDate, Boolean fur) {
@@ -29,7 +29,8 @@ public class Cat extends Pet implements Train {
         if (fur) {
             isFur = ", I have a fur";
         } else {
-            isFur = ", I don`t need a fur";
+            isFur = "";
+            return super.info().replace(",  My fur color is ''",", I don`t have a fur ");
         }
         return super.info() + isFur;
     }
@@ -37,5 +38,18 @@ public class Cat extends Pet implements Train {
     @Override
     public void train() {
         System.out.println("Let`s train, good job...");
+    }
+
+    public Boolean getFur() {
+        return fur;
+    }
+
+    public void setFur(Boolean fur) {  // Побрить кота это жестоко, но возможно
+        if (!fur){
+            this.setFurColor("");
+            this.fur = false;
+        } else {
+            this.fur = true;
+        }
     }
 }

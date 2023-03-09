@@ -5,13 +5,13 @@ import OOP_DZ.DZ2.Interfaces.ShowAffection;
 import java.time.LocalDate;
 
 public abstract class Pet extends Animal implements ShowAffection {
-    String nickName;
-    String species;
-    String furColor;
-    boolean vaccination;
-    LocalDate birthDate;
+    protected String nickName;
+    protected final String species;
+    protected String furColor;
+    protected boolean vaccination;
+    protected final LocalDate birthDate;
 
-    public Pet(double animalHeight, double animalWeight, String animalEyeColor, String nickName, String species,
+    protected Pet(double animalHeight, double animalWeight, String animalEyeColor, String nickName, String species,
                String furColor, boolean vaccination, LocalDate birthDate) {
         super(animalHeight, animalWeight, animalEyeColor);
         this.nickName = nickName;
@@ -38,6 +38,40 @@ public abstract class Pet extends Animal implements ShowAffection {
                 ", My species is '" + species + '\'' +
                 ",  My fur color is '" + furColor + '\'' +
                 vacc +
-                ", my birth date is " + birthDate;
+                ", My birth date is " + birthDate;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public String getFurColor() {
+        return furColor;
+    }
+
+    public boolean isVaccination() {
+        return vaccination;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public void setFurColor(String furColor) {
+        this.furColor = furColor;
+    }
+
+    public void setVaccinate() {
+        if (!vaccination){
+            this.vaccination = true;
+        }
     }
 }

@@ -5,7 +5,7 @@ import OOP_DZ.DZ2.Interfaces.Train;
 import java.time.LocalDate;
 
 public class Dog extends Pet implements Train {
-    Boolean trained;
+    private Boolean trained;
 
     public Dog(double animalHeight, double animalWeight, String animalEyeColor, String nickName, String species,
                String furColor, boolean vaccination, LocalDate birthDate, Boolean trained) {
@@ -15,7 +15,7 @@ public class Dog extends Pet implements Train {
     @Override
     public void train() {
         System.out.println("Let`s train, Give me a paw....");
-        trained = true;
+        this.trained = true;
         System.out.println("Now, I can follow your orders");
     }
 
@@ -38,5 +38,9 @@ public class Dog extends Pet implements Train {
             isTrained = ", I can`t follow your orders";
         }
         return super.info() + isTrained;
+    }
+
+    public Boolean getTrained() {
+        return trained;
     }
 }

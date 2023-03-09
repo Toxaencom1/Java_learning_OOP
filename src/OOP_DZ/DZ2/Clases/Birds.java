@@ -4,9 +4,9 @@ import OOP_DZ.DZ2.Interfaces.Fly;
 
 public abstract class Birds extends Animal implements Fly {
 
-    protected Integer flyHeight;
+    protected int flyHeight;
 
-    public Birds(double animalHeight, double animalWeight, String animalEyeColor, Integer flyHeight) {
+    protected Birds(double animalHeight, double animalWeight, String animalEyeColor, int flyHeight) {
         super(animalHeight, animalWeight, animalEyeColor);
         this.flyHeight = flyHeight;
     }
@@ -24,5 +24,13 @@ public abstract class Birds extends Animal implements Fly {
 
     public Integer getFlyHeight() {
         return flyHeight;
+    }
+
+    public void setFlyHeight(Integer flyHeight) {
+        if(flyHeight>=1){
+            this.flyHeight = flyHeight;
+        }else {
+            System.out.println("Can`t fly lower than one meter");
+        }
     }
 }
