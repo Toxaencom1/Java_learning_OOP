@@ -1,8 +1,10 @@
 package OOP_DZ.DZ2.Clases;
 
+import OOP_DZ.DZ2.Interfaces.Train;
+
 import java.time.LocalDate;
 
-public class Dog extends Pet {
+public class Dog extends Pet implements Train {
     Boolean trained;
 
     public Dog(double animalHeight, double animalWeight, String animalEyeColor, String nickName, String species,
@@ -10,7 +12,7 @@ public class Dog extends Pet {
         super(animalHeight, animalWeight, animalEyeColor, nickName, species, furColor, vaccination, birthDate);
         this.trained = trained;
     }
-
+    @Override
     public void train() {
         System.out.println("Let`s train, Give me a paw....");
         trained = true;

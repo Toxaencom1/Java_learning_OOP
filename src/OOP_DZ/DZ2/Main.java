@@ -84,11 +84,11 @@ public class Main {
         chicken1.fly();
         System.out.println();
 
-        Stork stork1 = new Stork(0.6, 4, "black", 500);
+        Stork stork1 = new Stork(0.6, 4, "Grey", 500);
         System.out.println(stork1.info());
         stork1.goHunting();
-        stork1.makeNoize();
         stork1.fly();
+        stork1.makeNoize();
         System.out.println();
 
         Dog dog1 = new Dog(0.8, 20, "Brown", "Graf", "Doberman", "Brown", true, LocalDate.of(2015, 1, 1), false);
@@ -100,6 +100,7 @@ public class Main {
 
         Tiger tiger1 = new Tiger(1.5, 60, "Yellow", "Zoo", LocalDate.of(2010, 1, 1));
         System.out.println(tiger1.info());
+        tiger1.train();
         tiger1.goHunting();
         System.out.println(tiger1.showAffection());
         tiger1.makeNoize();
@@ -108,26 +109,10 @@ public class Main {
         Cat cat1 = new Cat(0.2,1.2,"Green-Gray","Cassie","Canadian Sphynx","black",
                 true,LocalDate.of(2008,1,1),false);
         System.out.println(cat1.info());
+        cat1.train();
         System.out.println(cat1.showAffection());
         cat1.makeNoize();
         System.out.println();
-
-        Animal unknownAnimal = new Animal(0.1,0.3,"Black") {
-            @Override
-            public void makeNoize() {
-                System.out.println("Squuak");
-            }
-
-            @Override
-            public String info() {
-                return "I am unknown Animal"  +
-                        ", My height is = " + getAnimalHeight() + "M" +
-                        ", My weight is = " + getAnimalWeight() + "kg" +
-                        ", My eye color is '" + getAnimalEyeColor()+ '\'';
-            }
-        };
-        System.out.println(unknownAnimal.info());
-
     }
 
 
