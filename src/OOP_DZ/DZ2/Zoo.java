@@ -11,20 +11,20 @@ import java.util.List;
 
 public class Zoo {
     private final Wolf wolf1 = new Wolf("Akella", 2, 30, "blue",
-            "Forests", LocalDate.of(2018, 1, 1), true);
+            "Zoo Cage№2", LocalDate.of(2018, 1, 1), true);
     private final Chiken chicken1 = new Chiken("Margo", 0.2, 1, "yellow");
     private final Chiken chicken2 = new Chiken("Stella", 0.2, 1, "yellow");
     private final Stork stork1 = new Stork("Dimitriy", 0.6, 4, "Grey", 500);
-    private final Dog dog1 = new Dog("Graf", 0.8, 20, "Brown", "Graf", "Doberman", "Brown", true,
+    private final Dog dog1 = new Dog("Graf Velinsky", 0.8, 20, "Brown", "Graf", "Doberman", "Brown", true,
             LocalDate.of(2015, 1, 1), false);
-    private final Tiger tiger1 = new Tiger("Alex", 1.5, 60, "Yellow", "Zoo", LocalDate.of(2010, 1, 1));
-    private final Cat cat1 = new Cat("Cassie", 0.2, 1.2, "Green-Gray", "Cassie", "Canadian Sphinx", "",
+    private final Tiger tiger1 = new Tiger("Alex", 1.5, 160, "Yellow", "Zoo Cage№1", LocalDate.of(2010, 1, 1));
+    private final Cat cat1 = new Cat("Cassie-Mur", 0.2, 1.2, "Green-Gray", "Cassie", "Canadian Sphinx", "",
             true, LocalDate.of(2008, 1, 1), false);
     //=================================================================================================================
-    private final Cat cat2 = new Cat("Bonya", 0.25, 1.4, "Yellow-Green", "Bonya", "british shorthair", "Gray",
+    private final Cat cat2 = new Cat("Bonya Lane", 0.25, 1.4, "Yellow-Green", "Bonya", "british shorthair", "Gray",
             true, LocalDate.of(20018, 4, 2), true);
     private final Wolf wolf2 = new Wolf("Ronald", 1.8, 28, "blue-Grey",
-            "Mountains", LocalDate.of(2019, 2, 4),false);
+            "Riverdale Forests", LocalDate.of(2019, 2, 4),false);
     private List<Animal> zoolist = new ArrayList<>(Arrays.asList(wolf1, chicken1, chicken2,
             stork1, dog1, tiger1, cat1));
     private List<Animal> tempZoolist = new ArrayList<>(Arrays.asList(cat2, wolf2));
