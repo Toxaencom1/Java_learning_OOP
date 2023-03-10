@@ -2,19 +2,26 @@ package OOP_DZ.DZ2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Menu {
-    public static List<String> mainMenu() {
-        return new ArrayList<>(Arrays.asList("Add animal","Remove animal","Show animal info","Show all animals info",
-                "How sounds animal","How all animal sounds","What animal can do","Exit"));
+    public ArrayList<String> mainMenuList;
+
+    public Menu() {
+        this.mainMenuList = new ArrayList<>(Arrays.asList("Add animal", "Remove animal",
+                "Show animal info", "Show all animals info",
+                "How sounds animal", "How all animal sounds",
+                "What animal can do", "Exit"));
     }
-    public static void showMenu(List<String> menuList) {
+
+//    public Menu(ArrayList<String> mainMenuList) { // not needed at the end
+//        this.mainMenuList = mainMenuList;
+//    }
+
+    public void showMenu() {
         System.out.println();
-        for (int i = 0; i < menuList.size(); i++) {
-            System.out.printf("%d %s\n", i + 1, menuList.get(i));
+        for (int i = 0; i < this.mainMenuList.size(); i++) {
+            System.out.printf("%d %s\n", i + 1, this.mainMenuList.get(i));
         }
         System.out.print("Your choice: ");
-
     }
 }

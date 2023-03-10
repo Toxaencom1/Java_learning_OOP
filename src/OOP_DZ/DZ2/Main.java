@@ -69,9 +69,10 @@ https://gospodaretsva.com/urok-26-udalenie-elementa-iz-odnomernogo-massiva.html
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello visitor! Welcome to our Zoo! Make your choice, or type 'exit' to exit");
+        Menu menu = new Menu();
         Zoo zoo = new Zoo();
         while (true) {
-            Menu.showMenu(Menu.mainMenu());
+            menu.showMenu();
             Scanner scanner = new Scanner(System.in);
             int menuChoice = Validator.valMenuChoice(scanner.nextLine(), 8);
             switch (menuChoice) {
@@ -130,10 +131,8 @@ public class Main {
                     scanner.close();
                     System.exit(0);
                 }
-
             }
         }
-
     }
 
     static void enterToContinue() {
