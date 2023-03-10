@@ -71,16 +71,16 @@ public class Main {
         System.out.println("Hello visitor! Welcome to our Zoo! Make your choice, or type 'exit' to exit");
         Menu menu = new Menu();
         Zoo zoo = new Zoo();
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         while (true) {
             menu.showMenu();
-            int menuChoice = Validator.valMenuChoice(scanner.nextLine(), 8);
+            int menuChoice = Validator.valMenuChoice(sc.nextLine(), 8,sc);
             switch (menuChoice) {
                 case 1 -> {
                     System.out.println();
                     zoo.showAnimalsId(zoo.getTempZoolist());
                     System.out.print("\nWhich animal to add?: ");
-                    int addAnimal = Validator.valInt(scanner.nextLine());
+                    int addAnimal = Validator.valInt(sc.nextLine(), sc);
                     System.out.println();
                     zoo.addAnimal(addAnimal);
                 }
@@ -88,7 +88,7 @@ public class Main {
                     System.out.println();
                     zoo.showAnimalsId(zoo.getZoolist());
                     System.out.print("\nWhich animal to remove?: ");
-                    int removeAnimal = Validator.valInt(scanner.nextLine());
+                    int removeAnimal = Validator.valInt(sc.nextLine(), sc);
                     System.out.println();
                     zoo.removeAnimal(removeAnimal);
                 }
@@ -96,48 +96,47 @@ public class Main {
                     System.out.println();
                     zoo.showAnimalsId(zoo.getZoolist());
                     System.out.print("\nWhich animal want to see?: ");
-                    int showAnimalInfo = Validator.valInt(scanner.nextLine());
+                    int showAnimalInfo = Validator.valInt(sc.nextLine(), sc);
                     zoo.getInfoAboutAnimal(showAnimalInfo);
-                    enterToContinue();
+                    enterToContinue(sc);
                 }
                 case 4 -> {
                     System.out.println();
                     zoo.getInfoAboutAllAnimal();
-                    enterToContinue();
+                    enterToContinue(sc);
                 }
                 case 5 -> {
                     System.out.println();
                     zoo.showAnimalsId(zoo.getZoolist());
                     System.out.print("\nWhich of animal makes sound?: ");
-                    int makeSoundAnimal = Validator.valInt(scanner.nextLine());
+                    int makeSoundAnimal = Validator.valInt(sc.nextLine(), sc);
                     zoo.makeAnimalNoize(makeSoundAnimal);
-                    enterToContinue();
+                    enterToContinue(sc);
                 }
                 case 6 -> {
                     System.out.println();
                     zoo.makeAllNoize();
                     System.out.println();
-                    enterToContinue();
+                    enterToContinue(sc);
                 }
                 case 7 -> {
                     System.out.println();
                     zoo.showAnimalsId(zoo.getZoolist());
                     System.out.print("\nWhich kind of animal to show what it can do?: ");
-                    int whatAnimalCanDo = Validator.valInt(scanner.nextLine());
+                    int whatAnimalCanDo = Validator.valInt(sc.nextLine(), sc);
                     zoo.whatAnimalDo(whatAnimalCanDo);
-                    enterToContinue();
+                    enterToContinue(sc);
                 }
                 case 8 -> {
-                    scanner.close();
+                    sc.close();
                     System.exit(0);
                 }
             }
         }
     }
 
-    static void enterToContinue() {
-        Scanner scanner = new Scanner(System.in);
+    static void enterToContinue(Scanner sc) {
         System.out.println("Push 'Enter' to continue");
-        String temp = scanner.nextLine();
+        String temp = sc.nextLine();
     }
 }
