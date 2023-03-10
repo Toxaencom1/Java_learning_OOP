@@ -71,9 +71,9 @@ public class Main {
         System.out.println("Hello visitor! Welcome to our Zoo! Make your choice, or type 'exit' to exit");
         Menu menu = new Menu();
         Zoo zoo = new Zoo();
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             menu.showMenu();
-            Scanner scanner = new Scanner(System.in);
             int menuChoice = Validator.valMenuChoice(scanner.nextLine(), 8);
             switch (menuChoice) {
                 case 1 -> {
