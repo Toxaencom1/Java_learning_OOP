@@ -126,7 +126,11 @@ public class Main {
                     zoo.whatAnimalDo(whatAnimalCanDo);
                     enterToContinue();
                 }
-                case 8 -> System.exit(0);
+                case 8 -> {
+                    scanner.close();
+                    System.exit(0);
+                }
+
             }
         }
 

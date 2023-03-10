@@ -22,7 +22,7 @@ public class Chiken extends Birds implements ShowAffection {
 
     @Override
     public void fly() {
-        System.out.println("I am a bird, but i can`t fly");
+        System.out.println("I am a bird, but i can`t fly a long time and higher then few meters");
     }
 
     @Override
