@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Menu {
-    public ArrayList<String> mainMenuList;
+    private final ArrayList<String> mainMenuList;
 
     public Menu() {
         this.mainMenuList = new ArrayList<>(Arrays.asList("Add animal", "Remove animal",
@@ -23,5 +23,9 @@ public class Menu {
             System.out.printf("%d %s\n", i + 1, this.mainMenuList.get(i));
         }
         System.out.print("Your choice: ");
+    }
+
+    public ArrayList<String> getMainMenuList() {
+        return mainMenuList;
     }
 }
