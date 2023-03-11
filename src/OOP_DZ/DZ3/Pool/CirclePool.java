@@ -1,6 +1,5 @@
 package OOP_DZ.DZ3.Pool;
 
-import OOP_DZ.DZ3.Classes.Base_Classes.Figure;
 import OOP_DZ.DZ3.Classes.Circle;
 
 import java.util.ArrayList;
@@ -16,10 +15,10 @@ public class CirclePool {
     private Circle circle7 = new Circle(2.0);
     private Circle circle8 = new Circle(2.0);
     private Circle circle9 = new Circle(2.0);
-    private List<Figure> circlePoolList = new ArrayList<>(Arrays.asList(circle2, circle3, circle4,
+    private List<Circle> circlePoolList = new ArrayList<>(Arrays.asList(circle2, circle3, circle4,
             circle5, circle6, circle7, circle8, circle9));
 
-    public List<Figure> getCirclePoolList() {
+    public List<Circle> getCirclePoolList() {
         return circlePoolList;
     }
 }

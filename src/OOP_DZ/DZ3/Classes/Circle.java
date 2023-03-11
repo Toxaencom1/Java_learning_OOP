@@ -4,7 +4,7 @@ import OOP_DZ.DZ3.Classes.Base_Classes.Figure;
 import OOP_DZ.DZ3.Interfaces.Circumference;
 
 public class Circle extends Figure implements Circumference {
-    Double radius;
+    private Double radius;
 
     public Circle(Double radius) {
         this.radius = radius;
@@ -30,5 +30,13 @@ public class Circle extends Figure implements Circumference {
     @Override
     public String toString() {
         return super.toString() + ", Circumference: " + this.circumference() + ", Radius: " + radius;
+    }
+
+    public Double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(Double radius) {
+        this.radius = radius;
     }
 }
