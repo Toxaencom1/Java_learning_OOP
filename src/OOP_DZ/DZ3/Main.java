@@ -1,9 +1,12 @@
 package OOP_DZ.DZ3;
 
 import OOP_DZ.DZ3.Classes.*;
+import OOP_DZ.DZ3.Classes.Base_Classes.Figure;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /*
     Написать программу на языках Java, в которой идёт со следующими геометрическими фигурами:
@@ -28,18 +31,12 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) {
-        Square square = new Square(new ArrayList<>(), 2.0);
-        System.out.println(square.getId());
-        System.out.println(square.checkFigure());
-        Rectangle rectangle = new Rectangle(new ArrayList<>(), 2.0, 1.0);
-        System.out.println(rectangle.getId());
-        System.out.println(rectangle.checkFigure());
-        Triangle triangle = new Triangle(new ArrayList<>(), 1.0, 1.1, 2.0);
-        System.out.println(triangle.getId());
-        System.out.println(triangle.checkFigure());
-        Circle circle = new Circle(2.0);
-        System.out.println(circle.getId());
-        System.out.println(circle.checkFigure());
+        Square square1 = new Square(new ArrayList<>(), 2.0);
+        Rectangle rectangle1 = new Rectangle(new ArrayList<>(), 2.0, 3.0);
+        Triangle triangle1 = new Triangle(new ArrayList<>(), 1.1, 1.0, 2.0);
+        Circle circle1 = new Circle(2.4);
+
+        List<Figure> circlePoolList = new ArrayList<>(Arrays.asList(circle1, rectangle1, square1, triangle1));
 
 
     }

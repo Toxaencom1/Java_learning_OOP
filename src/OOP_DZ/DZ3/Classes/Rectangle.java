@@ -1,23 +1,17 @@
 package OOP_DZ.DZ3.Classes;
 
-import OOP_DZ.DZ3.Interfaces.Perimeter;
 
 import java.util.ArrayList;
 
-public class Rectangle extends Polygon implements Perimeter {
-    protected Double sideA,sideB,sideC,sideD;
+public class Rectangle extends Polygon {
 
     public Rectangle(ArrayList<Double> sideList, Double sideA, Double sideB) {
         super(sideList);
-        this.sideA = sideA;
-        this.sideB = sideB;
-        this.sideC = sideA;
-        this.sideD = sideB;
-        if (!sideA.equals(sideB) && sideA>0 && sideB>0){
-            sideList.add(this.sideA);
-            sideList.add(this.sideB);
-            sideList.add(this.sideC);
-            sideList.add(this.sideD);
+        if (!sideA.equals(sideB) && sideA > 0.0 && sideB > 0.0) {
+            sideList.add(sideA);
+            sideList.add(sideB);
+            sideList.add(sideA);
+            sideList.add(sideB);
         } else {
             System.out.println("Rectangle sides must be more than zero, and not equals!");
         }
@@ -26,7 +20,13 @@ public class Rectangle extends Polygon implements Perimeter {
 
     @Override
     public Double areaOf() {
-        return sideA * sideB;
+        return getSideA() * getSideB();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ": Side A and C = " + getSideA() + ", Side B and D = " + getSideB();
+
     }
 
     public Double getSideA() {
@@ -38,7 +38,7 @@ public class Rectangle extends Polygon implements Perimeter {
     }
 
     public void setSideA(Double sideAC) {
-        if (!sideAC.equals(sideB)) {
+        if (!sideAC.equals(getSideB())) {
             sideList.set(0, sideAC);
             sideList.set(2, sideAC);
         } else {
@@ -47,7 +47,7 @@ public class Rectangle extends Polygon implements Perimeter {
     }
 
     public void setSideB(Double sideBD) {
-        if (!sideBD.equals(sideA)) {
+        if (!sideBD.equals(getSideA())) {
             sideList.set(1, sideBD);
             sideList.set(3, sideBD);
         } else {
@@ -56,9 +56,9 @@ public class Rectangle extends Polygon implements Perimeter {
     }
 
     public void switchSides() {
-        sideList.set(0, sideB);
-        sideList.set(1, sideA);
-        sideList.set(2, sideB);
-        sideList.set(3, sideA);
+        sideList.set(0, getSideB());
+        sideList.set(1, getSideA());
+        sideList.set(2, getSideB());
+        sideList.set(3, getSideA());
     }
 }

@@ -9,9 +9,15 @@ public abstract class Figure {
     }
 
     abstract public Double areaOf();
+
     abstract public String checkFigure();
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Id = " + id + ", " + getClass().getSimpleName() + ": Area of: " + areaOf();
     }
 }

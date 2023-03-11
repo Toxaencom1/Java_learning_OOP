@@ -4,15 +4,15 @@ package OOP_DZ.DZ3.Classes;
 import java.util.ArrayList;
 
 
-public class Square extends Rectangle {
+public class Square extends Polygon {
 
     public Square(ArrayList<Double> sideList, Double sideA) {
-        super(sideList, sideA, sideA);
+        super(sideList);
         if (sideA > 0) {
-            sideList.add(this.sideA);
-            sideList.add(this.sideB);
-            sideList.add(this.sideC);
-            sideList.add(this.sideD);
+            sideList.add(sideA);
+            sideList.add(sideA);
+            sideList.add(sideA);
+            sideList.add(sideA);
         } else {
             System.out.println("Square sides must be more than zero!");
         }
@@ -20,17 +20,22 @@ public class Square extends Rectangle {
 
     @Override
     public Double areaOf() {
-        return Math.pow(sideA, 2);
+        return Math.pow(getSideA(), 2);
     }
 
+
+    @Override
+    public String toString() {
+        return super.toString() + ": Side A,B,C,D = " + getSideA() +
+                ", Area of Rectangle: " + this.areaOf() +
+                ", Perimeter: " + this.perimeter();
+    }
 
     public Double getSideA() {
         return sideList.get(0);
     }
 
     public void setSides(Double side) {
-        for (int i = 0; i < sideList.size(); i++) {
-            sideList.set(i, side);
-        }
+        sideList.replaceAll(ignored -> side);
     }
 }

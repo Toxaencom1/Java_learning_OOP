@@ -44,4 +44,9 @@ public abstract class Polygon extends Figure implements Perimeter {
             return "Something wrong";
         }
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Perimeter: " + this.perimeter();
+    }
 }

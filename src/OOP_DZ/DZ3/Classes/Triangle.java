@@ -38,17 +38,19 @@ public class Triangle extends Polygon {
     @Override
     public Double perimeter() {
         if (isPossible) {
-            Double sum = 0.0;
-            for (Double el : sideList) {
-                sum += el;
-            }
-            return sum;
+            return super.perimeter();
         } else {
-            return null;
+            return 0.0;
         }
     }
 
-//    @Override
+    @Override
+    public String toString() {
+        return super.toString()+": Side A = "+getSideA()+", Side B = "+getSideB()+
+                ", Side C = "+getSideC()+", Angle α = " + getAngleA()+
+                ", Angle β = " + getAngleB()+", Angle γ = " + getAngleC();
+    }
+    //    @Override
 //    public boolean checkFigure() {
 //        return sideList.size() == 3 && (Math.round(getAngleA() + getAngleB() + getAngleC()) == 180.0);
 //    }
