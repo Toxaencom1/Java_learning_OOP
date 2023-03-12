@@ -17,9 +17,7 @@ public class Square extends Polygon {
             sideList.add(sideA);
             sideList.add(sideA);
             sideList.add(sideA);
-        } else {
-            System.out.println("Square sides must be more than zero!");
-        }
+        } else System.out.println("Square sides must be more than zero!");
     }
 
     @Override

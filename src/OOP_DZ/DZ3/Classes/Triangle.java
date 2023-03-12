@@ -9,23 +9,23 @@ public class Triangle extends Polygon {
     private boolean isPossible = false;
 
     public Triangle() {
-        super(new ArrayList<>(Arrays.asList(0.01, 0.01, 0.01)));
+        super(new ArrayList<>(Arrays.asList(0.011, 0.011, 0.02)));
     }
 
     public Triangle(ArrayList<Double> sideList, Double sideA, Double sideB, Double sideC) {
         super(sideList);
-
         if (sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA) {
             isPossible = true;
             sideList.add(sideA);
             sideList.add(sideB);
             sideList.add(sideC);
-            this.angleA = Math.toDegrees(Math.acos((Math.pow(sideB, 2) + Math.pow(sideC, 2) - Math.pow(sideA, 2)) / (2 * sideC * sideB)));
-            this.angleB = Math.toDegrees(Math.acos((Math.pow(sideA, 2) + Math.pow(sideB, 2) - Math.pow(sideC, 2)) / (2 * sideA * sideB)));
-            this.angleC = Math.toDegrees(Math.acos((Math.pow(sideA, 2) + Math.pow(sideC, 2) - Math.pow(sideB, 2)) / (2 * sideA * sideC)));
-        } else {
-            System.out.println(getClass().getSimpleName() + " Object is incorrect!");
-        }
+            this.angleA = Math.toDegrees(Math.acos((Math.pow(sideB, 2) + Math.pow(sideC, 2) - Math.pow(sideA, 2)) /
+                    (2 * sideC * sideB)));
+            this.angleB = Math.toDegrees(Math.acos((Math.pow(sideA, 2) + Math.pow(sideB, 2) - Math.pow(sideC, 2)) /
+                    (2 * sideA * sideB)));
+            this.angleC = Math.toDegrees(Math.acos((Math.pow(sideA, 2) + Math.pow(sideC, 2) - Math.pow(sideB, 2)) /
+                    (2 * sideA * sideC)));
+        } else System.out.println(getClass().getSimpleName() + " Object is incorrect!");
     }
 
     @Override
@@ -65,8 +65,6 @@ public class Triangle extends Polygon {
         return sideList.get(2);
     }
 
-    //    if (getSideA() + getSideB() > getSideC() && getSideA() +
-//    getSideC() > getSideB() && getSideB() + getSideC() > getSideA()) {
     public void setSideA(Double sideA) {
         if (sideList.size() > 0) {
             sideList.set(0, sideA);
@@ -123,9 +121,12 @@ public class Triangle extends Polygon {
     }
 
     private void recalculateAngles() {
-        angleA = Math.toDegrees(Math.acos((Math.pow(getSideB(), 2) + Math.pow(getSideC(), 2) - Math.pow(getSideA(), 2)) / (2 * getSideC() * getSideB())));
-        angleB = Math.toDegrees(Math.acos((Math.pow(getSideA(), 2) + Math.pow(getSideB(), 2) - Math.pow(getSideC(), 2)) / (2 * getSideA() * getSideB())));
-        angleC = Math.toDegrees(Math.acos((Math.pow(getSideA(), 2) + Math.pow(getSideC(), 2) - Math.pow(getSideB(), 2)) / (2 * getSideA() * getSideC())));
+        angleA = Math.toDegrees(Math.acos((Math.pow(getSideB(), 2) + Math.pow(getSideC(), 2) -
+                Math.pow(getSideA(), 2)) / (2 * getSideC() * getSideB())));
+        angleB = Math.toDegrees(Math.acos((Math.pow(getSideA(), 2) + Math.pow(getSideB(), 2) -
+                Math.pow(getSideC(), 2)) / (2 * getSideA() * getSideB())));
+        angleC = Math.toDegrees(Math.acos((Math.pow(getSideA(), 2) + Math.pow(getSideC(), 2) -
+                Math.pow(getSideB(), 2)) / (2 * getSideA() * getSideC())));
     }
 
 }

@@ -12,7 +12,7 @@ public class Circle extends Figure implements Circumference {
     public Circle(Double radius) {
         if(radius>0) {
             this.radius = radius;
-        }
+        } else System.out.println("Circle create fail");
     }
 
     @Override

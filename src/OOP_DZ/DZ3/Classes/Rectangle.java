@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Rectangle extends Polygon {
     public Rectangle() {
-        super(new ArrayList<>(Arrays.asList(0.01, 0.01, 0.01, 0.01)));
+        super(new ArrayList<>(Arrays.asList(0.01, 0.02, 0.01, 0.02)));
     }
 
     public Rectangle(ArrayList<Double> sideList, Double sideAC, Double sideBD) {
@@ -16,10 +16,7 @@ public class Rectangle extends Polygon {
             sideList.add(sideBD);
             sideList.add(sideAC);
             sideList.add(sideBD);
-        } else {
-            System.out.println("Rectangle sides must be more than zero, and not equals!");
-        }
-
+        } else System.out.println("Rectangle sides must be more than zero, and not equals!");
     }
 
     @Override
