@@ -2,9 +2,11 @@ package OOP_DZ.DZ3.Pool;
 
 import OOP_DZ.DZ3.Classes.Base_Classes.Figure;
 import OOP_DZ.DZ3.Classes.Rectangle;
+import OOP_DZ.DZ3.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class RectanglePool {
     private List<Rectangle> rectanglePoolList = new ArrayList<>(List.of(new Rectangle()));
@@ -21,12 +23,18 @@ public class RectanglePool {
         rectanglePoolList.get(0).setSideB(size);
     }
 
-    public Figure getRectangle(Double sideA, Double sideB) {
-        if (!sideA.equals(sideB) && sideA > 0 && sideB > 0) {
-            setSideA(sideA);
-            setSideB(sideB);
-        } else System.out.printf("Rectangle Id-№%d with your parameters is impossible, " +
-                "add standard Rectangle, you can change parameters from menu №4\n", rectanglePoolList.get(0).getId());
+    public Figure getRectangle(Scanner sc) {
+        while (true){
+            System.out.println("Enter side A: ");
+            Double sideA = Validator.valDouble(sc.nextLine(), sc);
+            System.out.println("Enter side B: ");
+            Double sideB = Validator.valDouble(sc.nextLine(), sc);
+            if (!sideA.equals(sideB) && sideA > 0 && sideB > 0) {
+                setSideA(sideA);
+                setSideB(sideB);
+                break;
+            } else System.out.println("Rectangle with your parameters is impossible, enter right parameters ");
+        }
         return rectanglePoolList.get(0);
     }
 

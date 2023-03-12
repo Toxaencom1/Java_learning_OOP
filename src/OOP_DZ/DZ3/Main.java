@@ -1,8 +1,8 @@
 package OOP_DZ.DZ3;
 
 
-import OOP_DZ.DZ3.Classes.Base_Classes.Figure;
 import OOP_DZ.DZ3.Pool.*;
+
 import java.util.Scanner;
 
 /*
@@ -39,52 +39,29 @@ public class Main {
             menu.showMenu(menu.getMainMenuList());
             int menuChoice = Validator.valMenuChoice(sc.nextLine(), 6, sc);
             switch (menuChoice) {
-                case 1 -> {
-                    fPool.showProperties();
-                }
+                case 1 -> fPool.showProperties();
                 case 2 -> {
                     menu.showMenu(menu.getFigureSelectList());
                     int addMenuChoice = Validator.valMenuChoice(sc.nextLine(), 5, sc);
                     switch (addMenuChoice) {
                         case 1 -> {
-                            System.out.println("Enter radius of circle: ");
-                            double radius = Validator.valDouble(sc.nextLine(), sc);
-                            if (cPool.getCirclePoolList().size() != 0){
-                                fPool.addFigure(cPool.getCircle(radius));
-                                cPool.refreshList();
-                            } else System.out.println("Circles out of stock)");
+                            fPool.addFigure(cPool.getCircle(sc));
+                            cPool.refreshList();
                         }
                         case 2 -> {
-                            System.out.println("Enter side A: ");
-                            double sideA = Validator.valDouble(sc.nextLine(), sc);
-                            System.out.println("Enter side B: ");
-                            double sideB = Validator.valDouble(sc.nextLine(), sc);
-                            System.out.println("Enter side C: ");
-                            double sideC = Validator.valDouble(sc.nextLine(), sc);
-                            if(tPool.getTrianglePoolList().size()!=0){
-                                fPool.addFigure(tPool.getTriangle(sideA,sideB,sideC));
-                                tPool.refreshList();
-                            } else System.out.println("Triangles out of stock)");
+                            fPool.addFigure(tPool.getTriangle(sc));
+                            tPool.refreshList();
                         }
                         case 3 -> {
-                            System.out.println("Enter side A: ");
-                            double sideA = Validator.valDouble(sc.nextLine(), sc);
-                            System.out.println("Enter side B: ");
-                            double sideB = Validator.valDouble(sc.nextLine(), sc);
-                            if(rPool.getRectanglePoolList().size()!=0){
-                                fPool.addFigure(rPool.getRectangle(sideA,sideB));
-                                rPool.refreshList();
-                            } else System.out.println("Rectangles out of stock)");
+                            fPool.addFigure(rPool.getRectangle(sc));
+                            rPool.refreshList();
                         }
                         case 4 -> {
-                            System.out.println("Enter side: ");
-                            double sideA = Validator.valDouble(sc.nextLine(), sc);
-                            if(sPool.getSquarePoolList().size()!=0){
-                                fPool.addFigure(sPool.getSquare(sideA));
-                                sPool.refreshList();
-                            } else System.out.println("Squares out of stock)");
+                            fPool.addFigure(sPool.getSquare(sc));
+                            sPool.refreshList();
                         }
-                        case 5 -> {}
+                        case 5 -> {
+                        }
                     }
                 }
                 case 3 -> {
@@ -92,22 +69,18 @@ public class Main {
                     fPool.showFigureId();
                     System.out.println("Which one to remove?");
                     int witchOne = Validator.valInt(sc.nextLine(), sc);
-                    for (Figure figure : fPool.getFigureList()) {
-                        if (figure.getId() == witchOne) {
-                            fPool.removeFigure(figure);
-                            break;
-                        }
-                    }
+                    fPool.removeFigure(witchOne);
                 }
                 case 4 -> {
+                    System.out.println();
                     fPool.showFigureId();
                     System.out.print("Choose figure id: ");
-                    int changeChoice = Validator.valInt(sc.nextLine(),sc);
-                    fPool.changeFigureParam(changeChoice,sc);
+                    int changeChoice = Validator.valInt(sc.nextLine(), sc);
+                    fPool.changeFigureParam(changeChoice, sc);
                 }
                 case 5 -> {
-                    fPool.showFigureId();
                     fPool.sortFigures();
+                    System.out.println(fPool.getFigureList());
                 }
                 case 6 -> {
                     sc.close();

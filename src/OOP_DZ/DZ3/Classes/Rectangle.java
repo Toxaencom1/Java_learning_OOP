@@ -6,18 +6,19 @@ import java.util.Arrays;
 
 public class Rectangle extends Polygon {
     public Rectangle() {
-        super(new ArrayList<>(Arrays.asList(0.01, 0.02, 0.01, 0.02)));
+        super(new ArrayList<>(Arrays.asList(1.01, 1.02, 1.01, 1.02)));
     }
 
-    public Rectangle(ArrayList<Double> sideList, Double sideAC, Double sideBD) {
-        super(sideList);
-        if (!sideAC.equals(sideBD) && sideAC > 0.0 && sideBD > 0.0) {
-            sideList.add(sideAC);
-            sideList.add(sideBD);
-            sideList.add(sideAC);
-            sideList.add(sideBD);
-        } else System.out.println("Rectangle sides must be more than zero, and not equals!");
-    }
+//    public Rectangle(ArrayList<Double> sideList, Double sideAC, Double sideBD) {
+//        super(sideList);
+//        if (!sideAC.equals(sideBD) && sideAC > 0.0 && sideBD > 0.0) {
+//            sideList.add(sideAC);
+//            sideList.add(sideBD);
+//            sideList.add(sideAC);
+//            sideList.add(sideBD);
+//        } else System.out.println("Rectangle sides must be more than zero, and not equals!");
+//    }
+// No need at the end
 
     @Override
     public Double areaOf() {
@@ -26,7 +27,7 @@ public class Rectangle extends Polygon {
 
     @Override
     public String toString() {
-        return super.toString() + ": Side A and C = " + getSideA() + ", Side B and D = " + getSideB() + "\n";
+        return super.toString() + ", Side A and C = " + getSideA() + ", Side B and D = " + getSideB() + "\n";
 
     }
 
@@ -46,12 +47,5 @@ public class Rectangle extends Polygon {
     public void setSideB(Double sideBD) {
         sideList.set(1, sideBD);
         sideList.set(3, sideBD);
-    }
-
-    public void switchSides() {
-        sideList.set(0, getSideB());
-        sideList.set(1, getSideA());
-        sideList.set(2, getSideB());
-        sideList.set(3, getSideA());
     }
 }

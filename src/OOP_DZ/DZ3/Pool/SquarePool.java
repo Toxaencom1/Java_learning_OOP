@@ -2,9 +2,11 @@ package OOP_DZ.DZ3.Pool;
 
 import OOP_DZ.DZ3.Classes.Base_Classes.Figure;
 import OOP_DZ.DZ3.Classes.Square;
+import OOP_DZ.DZ3.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class SquarePool {
 
@@ -16,11 +18,15 @@ public class SquarePool {
     public void setSides(Double size){
         squarePoolList.get(0).setSides(size);
     }
-    public Figure getSquare(Double sideA){
-        if (sideA > 0) {
-            setSides(sideA);
-        } else System.out.printf("Square Id-№%d with your parameters is impossible, " +
-                "add standard Square, you can change parameters from menu №4\n",squarePoolList.get(0).getId());
+    public Figure getSquare(Scanner sc){
+        while (true){
+            System.out.println("Enter side: ");
+            double sideA = Validator.valDouble(sc.nextLine(), sc);
+            if (sideA > 0) {
+                setSides(sideA);
+                break;
+            } else System.out.println("Square with your parameters is impossible, enter right parameters ");
+        }
         return squarePoolList.get(0);
     }
     public void removeSquare() {

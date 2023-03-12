@@ -8,17 +8,18 @@ import java.util.Arrays;
 public class Square extends Polygon {
 
     public Square() {
-        super(new ArrayList<>(Arrays.asList(0.01,0.01,0.01,0.01)));
+        super(new ArrayList<>(Arrays.asList(1.0, 1.0, 1.0, 1.0)));
     }
-    public Square(ArrayList<Double> sideList, Double sideA) {
-        super(sideList);
-        if (sideA > 0) {
-            sideList.add(sideA);
-            sideList.add(sideA);
-            sideList.add(sideA);
-            sideList.add(sideA);
-        } else System.out.println("Square sides must be more than zero!");
-    }
+//    public Square(ArrayList<Double> sideList, Double sideA) {
+//        super(sideList);
+//        if (sideA > 0) {
+//            sideList.add(sideA);
+//            sideList.add(sideA);
+//            sideList.add(sideA);
+//            sideList.add(sideA);
+//        } else System.out.println("Square sides must be more than zero!");
+//    }
+// No need at the end
 
     @Override
     public Double areaOf() {
@@ -28,9 +29,8 @@ public class Square extends Polygon {
 
     @Override
     public String toString() {
-        return super.toString() + ": Side A,B,C,D = " + getSideA() +
-                ", Area of Rectangle: " + this.areaOf() +
-                ", Perimeter: " + this.perimeter()+"\n";
+        return super.toString() + ", Side A,B,C,D = " + getSideA() + "\n";
+
     }
 
     public Double getSideA() {

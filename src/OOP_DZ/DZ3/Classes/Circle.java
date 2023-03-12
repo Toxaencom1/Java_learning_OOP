@@ -5,15 +5,17 @@ import OOP_DZ.DZ3.Interfaces.Circumference;
 
 public class Circle extends Figure implements Circumference {
     private Double radius;
+
     public Circle() {
-        this.radius = 0.1;
+        this.radius = 1.0;
     }
 
-    public Circle(Double radius) {
-        if(radius>0) {
-            this.radius = radius;
-        } else System.out.println("Circle create fail");
-    }
+//    public Circle(Double radius) {
+//        if (radius > 0) {
+//            this.radius = radius;
+//        } else System.out.println("Circle create fail");
+//    }
+// No need at the end
 
     @Override
     public Double areaOf() {
@@ -34,7 +36,7 @@ public class Circle extends Figure implements Circumference {
 
     @Override
     public String toString() {
-        return super.toString() + ", Circumference: " + this.circumference() + ", Radius: " + radius+"\n";
+        return super.toString() + ", Circumference: " + this.circumference() + ", Radius: " + radius + "\n";
     }
 
     public Double getRadius() {

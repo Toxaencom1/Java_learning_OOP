@@ -12,12 +12,8 @@ import OOP_DZ.DZ3.Validator;
 import java.util.*;
 
 public class FigurePool {
-    private Circle circle1 = new Circle(3.0);
-    private Rectangle rectangle1 = new Rectangle(new ArrayList<>(), 2.0, 3.0);
-    private Square square1 = new Square(new ArrayList<>(), 2.0);
-    private Triangle triangle1 = new Triangle(new ArrayList<>(), 1.1, 1.0, 2.0);
 
-    private List<Figure> figureList = new ArrayList<>(Arrays.asList(circle1, rectangle1, square1, triangle1));
+    private List<Figure> figureList = new ArrayList<>(Arrays.asList(new Circle(), new Rectangle(), new Square(), new Triangle()));
 
     public List<Figure> getFigureList() {
         return figureList;
@@ -27,6 +23,14 @@ public class FigurePool {
     }
     public void removeFigure(Figure figure){
         figureList.remove(figure);
+    }
+    public void removeFigure(int witchOne){
+        for (Figure figure : figureList) {
+            if (figure.getId() == witchOne) {
+                removeFigure(figure);
+                break;
+            }
+        }
     }
     public void showFigureId() {
         for (Figure figure : figureList) {
@@ -57,7 +61,7 @@ public class FigurePool {
                     double radius = Validator.valDouble(sc.nextLine(), sc);
                     if(radius>0){
                         ((Circle) figure).setRadius(radius);
-                    } else System.out.println("Circle with your parameter is impossible");
+                    } else System.out.println("Circle with your parameter is impossible, return to menu");
                 } else if (figure instanceof Triangle) {
                     System.out.println("Enter side A: ");
                     double sideA = Validator.valDouble(sc.nextLine(), sc);
@@ -69,7 +73,7 @@ public class FigurePool {
                         ((Triangle) figure).setSideA(sideA);
                         ((Triangle) figure).setSideB(sideB);
                         ((Triangle) figure).setSideC(sideC);
-                    } else System.out.println("Triangle with your parameters is impossible");
+                    } else System.out.println("Triangle with your parameters is impossible, return to menu");
                 } else if (figure instanceof Rectangle) {
                     System.out.println("Enter side A: ");
                     double sideA = Validator.valDouble(sc.nextLine(), sc);
@@ -78,19 +82,19 @@ public class FigurePool {
                     if (sideA>0 && sideB>0 && sideA!=sideB) {
                         ((Rectangle) figure).setSideA(sideA);
                         ((Rectangle) figure).setSideB(sideB);
-                    } else System.out.println("The sides of the Rectangle must be greater than zero and not equal");
+                    } else System.out.println("The sides of the Rectangle must be greater than zero and not equal" +
+                            ", return to menu");
                 } else if (figure instanceof Square) {
                     System.out.println("Enter side: ");
                     double sideA = Validator.valDouble(sc.nextLine(), sc);
                     if (sideA > 0) {
                         ((Square) figure).setSides(sideA);
-                    } else System.out.println("The sides of the square must be greater than zero");
+                    } else System.out.println("The sides of the square must be greater than zero, return to menu");
                 }
             }
         }
     }
     public void sortFigures(){
         Collections.sort(figureList);
-        System.out.println(figureList);
     }
 }

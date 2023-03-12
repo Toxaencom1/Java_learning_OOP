@@ -2,9 +2,11 @@ package OOP_DZ.DZ3.Pool;
 
 import OOP_DZ.DZ3.Classes.Base_Classes.Figure;
 import OOP_DZ.DZ3.Classes.Triangle;
+import OOP_DZ.DZ3.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class TrianglePool {
     private List<Triangle> trianglePoolList = new ArrayList<>(List.of(new Triangle()));
@@ -25,13 +27,21 @@ public class TrianglePool {
         trianglePoolList.get(0).setSideC(size);
     }
 
-    public Figure getTriangle(Double sideA, Double sideB, Double sideC) {
-        if (sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA) {
-            setSideA(sideA);
-            setSideB(sideB);
-            setSideC(sideC);
-        } else System.out.printf("Triangle Id-№%d with your parameters is impossible, " +
-                "add standard triangle, you can change parameters from menu №4\n", trianglePoolList.get(0).getId());
+    public Figure getTriangle(Scanner sc) {
+        while (true){
+            System.out.println("Enter side A: ");
+            Double sideA = Validator.valDouble(sc.nextLine(), sc);
+            System.out.println("Enter side B: ");
+            Double sideB = Validator.valDouble(sc.nextLine(), sc);
+            System.out.println("Enter side C: ");
+            Double sideC = Validator.valDouble(sc.nextLine(), sc);
+            if (sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA) {
+                setSideA(sideA);
+                setSideB(sideB);
+                setSideC(sideC);
+                break;
+            } else System.out.println("Triangle with your parameters is impossible, enter right parameters");
+        }
         return trianglePoolList.get(0);
     }
 
