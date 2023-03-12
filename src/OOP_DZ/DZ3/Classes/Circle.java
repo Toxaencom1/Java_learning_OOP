@@ -22,12 +22,6 @@ public class Circle extends Figure implements Circumference {
         return Math.PI * Math.pow(radius, 2);
     }
 
-    @Override
-    public String checkFigure() {
-        if (Math.PI == circumference() / (2 * radius)) {
-            return "it is a Circle";
-        } else return "i don't nooooo";
-    }
 
     @Override
     public Double circumference() {

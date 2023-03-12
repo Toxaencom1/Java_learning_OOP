@@ -13,14 +13,10 @@ public class Menu {
         this.mainMenuList = new ArrayList<>(Arrays.asList("Info output", "Add Figure",
                 "Remove figure", "Change figure",
                 "Sort Figures and output info ", "Exit"));
-        this.figureSelectList = new ArrayList<>(Arrays.asList("Circle", "Triangle","Rectangle","Square",
+        this.figureSelectList = new ArrayList<>(Arrays.asList("Circle", "Triangle", "Rectangle", "Square",
                 "Back to main menu"));
 
     }
-
-//    public Menu(ArrayList<String> mainMenuList) { // not needed at the end
-//        this.mainMenuList = mainMenuList;
-//    }
 
     public void showMenu(List<String> menu) {
         System.out.println();
