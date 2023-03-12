@@ -2,22 +2,24 @@ package OOP_DZ.DZ3.Classes;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Triangle extends Polygon {
-    private final Double sideA,sideB,sideC;
-    private Double angleA,angleB,angleC;
+    private Double angleA, angleB, angleC;
     private boolean isPossible = false;
+
+    public Triangle() {
+        super(new ArrayList<>(Arrays.asList(0.01, 0.01, 0.01)));
+    }
 
     public Triangle(ArrayList<Double> sideList, Double sideA, Double sideB, Double sideC) {
         super(sideList);
-        this.sideA = sideA;
-        this.sideB = sideB;
-        this.sideC = sideC;
+
         if (sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA) {
             isPossible = true;
-            sideList.add(this.sideA);
-            sideList.add(this.sideB);
-            sideList.add(this.sideC);
+            sideList.add(sideA);
+            sideList.add(sideB);
+            sideList.add(sideC);
             this.angleA = Math.toDegrees(Math.acos((Math.pow(sideB, 2) + Math.pow(sideC, 2) - Math.pow(sideA, 2)) / (2 * sideC * sideB)));
             this.angleB = Math.toDegrees(Math.acos((Math.pow(sideA, 2) + Math.pow(sideB, 2) - Math.pow(sideC, 2)) / (2 * sideA * sideB)));
             this.angleC = Math.toDegrees(Math.acos((Math.pow(sideA, 2) + Math.pow(sideC, 2) - Math.pow(sideB, 2)) / (2 * sideA * sideC)));
@@ -28,8 +30,8 @@ public class Triangle extends Polygon {
 
     @Override
     public Double areaOf() {
-        if (isPossible){
-            return 0.5*sideA*sideB*Math.sin(Math.toRadians(angleB));
+        if (isPossible) {
+            return 0.5 * getSideA() * getSideB() * Math.sin(Math.toRadians(angleB));
         } else {
             return 0.0;
         }
@@ -46,14 +48,10 @@ public class Triangle extends Polygon {
 
     @Override
     public String toString() {
-        return super.toString()+": Side A = "+getSideA()+", Side B = "+getSideB()+
-                ", Side C = "+getSideC()+", Angle α = " + getAngleA()+
-                ", Angle β = " + getAngleB()+", Angle γ = " + getAngleC();
+        return super.toString() + ": Side A = " + getSideA() + ", Side B = " + getSideB() +
+                ", Side C = " + getSideC() + ", Angle α = " + getAngleA() +
+                ", Angle β = " + getAngleB() + ", Angle γ = " + getAngleC() + "\n";
     }
-    //    @Override
-//    public boolean checkFigure() {
-//        return sideList.size() == 3 && (Math.round(getAngleA() + getAngleB() + getAngleC()) == 180.0);
-//    }
 
     public Double getSideA() {
         return sideList.get(0);
@@ -67,6 +65,8 @@ public class Triangle extends Polygon {
         return sideList.get(2);
     }
 
+    //    if (getSideA() + getSideB() > getSideC() && getSideA() +
+//    getSideC() > getSideB() && getSideB() + getSideC() > getSideA()) {
     public void setSideA(Double sideA) {
         if (sideList.size() > 0) {
             sideList.set(0, sideA);
@@ -123,9 +123,9 @@ public class Triangle extends Polygon {
     }
 
     private void recalculateAngles() {
-        angleA = Math.toDegrees(Math.acos((Math.pow(sideB, 2) + Math.pow(sideC, 2) - Math.pow(sideA, 2)) / (2 * sideC * sideB)));
-        angleB = Math.toDegrees(Math.acos((Math.pow(sideA, 2) + Math.pow(sideB, 2) - Math.pow(sideC, 2)) / (2 * sideA * sideB)));
-        angleC = Math.toDegrees(Math.acos((Math.pow(sideA, 2) + Math.pow(sideC, 2) - Math.pow(sideB, 2)) / (2 * sideA * sideC)));
+        angleA = Math.toDegrees(Math.acos((Math.pow(getSideB(), 2) + Math.pow(getSideC(), 2) - Math.pow(getSideA(), 2)) / (2 * getSideC() * getSideB())));
+        angleB = Math.toDegrees(Math.acos((Math.pow(getSideA(), 2) + Math.pow(getSideB(), 2) - Math.pow(getSideC(), 2)) / (2 * getSideA() * getSideB())));
+        angleC = Math.toDegrees(Math.acos((Math.pow(getSideA(), 2) + Math.pow(getSideC(), 2) - Math.pow(getSideB(), 2)) / (2 * getSideA() * getSideC())));
     }
 
 }

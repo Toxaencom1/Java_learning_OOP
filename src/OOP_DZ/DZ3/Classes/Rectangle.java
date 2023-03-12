@@ -2,16 +2,20 @@ package OOP_DZ.DZ3.Classes;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Rectangle extends Polygon {
+    public Rectangle() {
+        super(new ArrayList<>(Arrays.asList(0.01, 0.01, 0.01, 0.01)));
+    }
 
-    public Rectangle(ArrayList<Double> sideList, Double sideA, Double sideB) {
+    public Rectangle(ArrayList<Double> sideList, Double sideAC, Double sideBD) {
         super(sideList);
-        if (!sideA.equals(sideB) && sideA > 0.0 && sideB > 0.0) {
-            sideList.add(sideA);
-            sideList.add(sideB);
-            sideList.add(sideA);
-            sideList.add(sideB);
+        if (!sideAC.equals(sideBD) && sideAC > 0.0 && sideBD > 0.0) {
+            sideList.add(sideAC);
+            sideList.add(sideBD);
+            sideList.add(sideAC);
+            sideList.add(sideBD);
         } else {
             System.out.println("Rectangle sides must be more than zero, and not equals!");
         }
@@ -25,7 +29,7 @@ public class Rectangle extends Polygon {
 
     @Override
     public String toString() {
-        return super.toString() + ": Side A and C = " + getSideA() + ", Side B and D = " + getSideB();
+        return super.toString() + ": Side A and C = " + getSideA() + ", Side B and D = " + getSideB() + "\n";
 
     }
 
@@ -38,21 +42,13 @@ public class Rectangle extends Polygon {
     }
 
     public void setSideA(Double sideAC) {
-        if (!sideAC.equals(getSideB())) {
-            sideList.set(0, sideAC);
-            sideList.set(2, sideAC);
-        } else {
-            System.out.println("If you do this, it's be a Square, Cancel operation!");
-        }
+        sideList.set(0, sideAC);
+        sideList.set(2, sideAC);
     }
 
     public void setSideB(Double sideBD) {
-        if (!sideBD.equals(getSideA())) {
-            sideList.set(1, sideBD);
-            sideList.set(3, sideBD);
-        } else {
-            System.out.println("If you do this, it's be a Square, Cancel operation!");
-        }
+        sideList.set(1, sideBD);
+        sideList.set(3, sideBD);
     }
 
     public void switchSides() {

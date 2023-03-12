@@ -7,13 +7,15 @@ import java.util.List;
 
 public class Menu {
     private final ArrayList<String> mainMenuList;
-    private final ArrayList<String> addMenuList;
+    private final ArrayList<String> figureSelectList;
 
     public Menu() {
         this.mainMenuList = new ArrayList<>(Arrays.asList("Info output", "Add Figure",
                 "Remove figure", "Change figure",
                 "Sort Figures and output info ", "Exit"));
-        this.addMenuList = new ArrayList<>(Arrays.asList("Circle", "Polygon","Back to main menu"));
+        this.figureSelectList = new ArrayList<>(Arrays.asList("Circle", "Triangle","Rectangle","Square",
+                "Back to main menu"));
+
     }
 
 //    public Menu(ArrayList<String> mainMenuList) { // not needed at the end
@@ -32,7 +34,7 @@ public class Menu {
         return mainMenuList;
     }
 
-    public ArrayList<String> getAddMenuList() {
-        return addMenuList;
+    public ArrayList<String> getFigureSelectList() {
+        return figureSelectList;
     }
 }

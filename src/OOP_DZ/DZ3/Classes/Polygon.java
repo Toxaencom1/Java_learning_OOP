@@ -6,7 +6,7 @@ import OOP_DZ.DZ3.Interfaces.Perimeter;
 
 import java.util.List;
 
-public abstract class Polygon extends Figure implements Perimeter {
+public abstract class Polygon extends Figure implements Perimeter,Comparable<Figure> {
     protected List<Double> sideList;
 
     protected Polygon(List<Double> sideList) {
