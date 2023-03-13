@@ -1,14 +1,11 @@
 package OOP_DZ.DZ3.Classes;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-
-public class Square extends Polygon {
+public class Square extends Rectangle {
 
     public Square() {
-        super(new ArrayList<>(Arrays.asList(1.0, 1.0, 1.0, 1.0)));
+        super();
+        setSides(1.0);
     }
 //    public Square(ArrayList<Double> sideList, Double sideA) {
 //        super(sideList);
@@ -21,23 +18,13 @@ public class Square extends Polygon {
 //    }
 // No need at the end
 
-    @Override
-    public Double areaOf() {
-        return Math.pow(getSideA(), 2);
-    }
-
 
     @Override
     public String toString() {
-        return super.toString() + ", Side A,B,C,D = " + getSideA() + "\n";
-
-    }
-
-    public Double getSideA() {
-        return sideList.get(0);
+        return super.toString().substring(0,super.toString().lastIndexOf(" and C")) + ",B,C,D = " + getSideA() + "\n";
     }
 
     public void setSides(Double side) {
-        sideList.replaceAll(ignored -> side);
+        sideList.replaceAll(x -> side);
     }
 }

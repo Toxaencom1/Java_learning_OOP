@@ -25,9 +25,9 @@ public class RectanglePool {
 
     public Figure getRectangle(Scanner sc) {
         while (true){
-            System.out.println("Enter side A: ");
+            System.out.println("Enter side A,C: ");
             Double sideA = Validator.valDouble(sc.nextLine(), sc);
-            System.out.println("Enter side B: ");
+            System.out.println("Enter side B,D: ");
             Double sideB = Validator.valDouble(sc.nextLine(), sc);
             if (!sideA.equals(sideB) && sideA > 0 && sideB > 0) {
                 setSideA(sideA);

@@ -4,10 +4,11 @@ import OOP_DZ.DZ3.Classes.Base_Classes.Figure;
 import OOP_DZ.DZ3.Interfaces.Perimeter;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Polygon extends Figure implements Perimeter, Comparable<Figure> {
-    protected List<Double> sideList;
+    protected List<Double> sideList = new ArrayList<>();
 
     protected Polygon(List<Double> sideList) {
         this.sideList = sideList;

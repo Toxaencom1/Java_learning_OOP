@@ -74,22 +74,22 @@ public class FigurePool {
                         ((Triangle) figure).setSideB(sideB);
                         ((Triangle) figure).setSideC(sideC);
                     } else System.out.println("Triangle with your parameters is impossible, return to menu");
-                } else if (figure instanceof Rectangle) {
-                    System.out.println("Enter side A: ");
-                    double sideA = Validator.valDouble(sc.nextLine(), sc);
-                    System.out.println("Enter side B: ");
-                    double sideB = Validator.valDouble(sc.nextLine(), sc);
-                    if (sideA>0 && sideB>0 && sideA!=sideB) {
-                        ((Rectangle) figure).setSideA(sideA);
-                        ((Rectangle) figure).setSideB(sideB);
-                    } else System.out.println("The sides of the Rectangle must be greater than zero and not equal" +
-                            ", return to menu");
                 } else if (figure instanceof Square) {
-                    System.out.println("Enter side: ");
+                    System.out.println("Enter side A,B,C,D: ");
                     double sideA = Validator.valDouble(sc.nextLine(), sc);
                     if (sideA > 0) {
                         ((Square) figure).setSides(sideA);
                     } else System.out.println("The sides of the square must be greater than zero, return to menu");
+                } else if (figure instanceof Rectangle) {
+                    System.out.println("Enter side A,C: ");
+                    double sideA = Validator.valDouble(sc.nextLine(), sc);
+                    System.out.println("Enter side B,D: ");
+                    double sideB = Validator.valDouble(sc.nextLine(), sc);
+                    if (sideA > 0 && sideB > 0 && sideA != sideB) {
+                        ((Rectangle) figure).setSideA(sideA);
+                        ((Rectangle) figure).setSideB(sideB);
+                    } else System.out.println("The sides of the Rectangle must be greater than zero and not equal" +
+                            ", return to menu");
                 }
             }
         }

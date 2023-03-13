@@ -28,7 +28,6 @@ public class Rectangle extends Polygon {
     @Override
     public String toString() {
         return super.toString() + ", Side A and C = " + getSideA() + ", Side B and D = " + getSideB() + "\n";
-
     }
 
     public Double getSideA() {

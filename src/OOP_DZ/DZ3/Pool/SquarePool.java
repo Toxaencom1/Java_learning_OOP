@@ -20,7 +20,7 @@ public class SquarePool {
     }
     public Figure getSquare(Scanner sc){
         while (true){
-            System.out.println("Enter side: ");
+            System.out.println("Enter side A,B,C,D: ");
             double sideA = Validator.valDouble(sc.nextLine(), sc);
             if (sideA > 0) {
                 setSides(sideA);
