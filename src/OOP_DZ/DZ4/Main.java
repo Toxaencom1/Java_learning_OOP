@@ -107,5 +107,8 @@ public class Main {
         System.out.println("indexOf al2: "+al2.indexOf("3a"));
         System.out.println(al2);
         System.out.println(al2.sum());
+        for (Object item : al) {
+            System.out.println(item);
+        }
     }
 }

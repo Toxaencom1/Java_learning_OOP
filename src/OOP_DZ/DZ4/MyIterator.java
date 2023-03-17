@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public class MyIterator<T> implements Iterator<T> {
     private int index = 0;
-    T[] list;
+    private final T[] list;
 
     public MyIterator(T[] list) {
         this.list = list;

@@ -11,7 +11,7 @@ public interface ArrayListInterface<T> extends Iterable<T> {
     void remove(int index);
     void remove(T item);
     void removeIf(T item);
-    Integer indexOf(T item);
-    Integer lastIndexOf(T item);
-    Boolean contains(T item);
+    int indexOf(T item);
+    int lastIndexOf(T item);
+    boolean contains(T item);
 }

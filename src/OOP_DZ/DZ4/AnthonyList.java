@@ -168,7 +168,7 @@ public class AnthonyList<T> implements ArrayListInterface<T> {
     }
 
     @Override
-    public Integer indexOf(T item) {
+    public int indexOf(T item) {
         for (int i = 0; i < list.length; i++) {
             if ((list[i]).equals(item)) {
                 return i;
@@ -178,7 +178,7 @@ public class AnthonyList<T> implements ArrayListInterface<T> {
     }
 
     @Override
-    public Integer lastIndexOf(T item) {
+    public int lastIndexOf(T item) {
         for (int i = list.length - 1; i >= 0; i--) {
             if ((list[i]).equals(item)) {
                 return i;
@@ -187,7 +187,7 @@ public class AnthonyList<T> implements ArrayListInterface<T> {
         return -1;
     }
     @Override
-    public Boolean contains(T item) {
+    public boolean contains(T item) {
         for (T obj : list) {
             if (obj.equals(item)) {
                 return true;
