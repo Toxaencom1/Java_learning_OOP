@@ -39,14 +39,18 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        // Демонстрация представляет собой несвязное применение методов, производимых для проверки во время разработки
+        System.out.println("Поверка пустого листа");
         AnthonyList<Double> al54 = new AnthonyList<>();
         System.out.println(al54.size());
         System.out.println(al54);
+        System.out.println("\n Проверка конструктора с параметром");
         AnthonyList<String> al45 = new AnthonyList<>(Arrays.asList("1a","2b","3c","4d","5e","6f","7g"));
         System.out.println(al45);
         System.out.println("Size al45: "+al45.size());
-        AnthonyList<Double> al = new AnthonyList<>();
+        System.out.println("\n Проверка дабл типа, методов");
 
+        AnthonyList<Double> al = new AnthonyList<>();
         al.add(3.1);
         al.add(2.2);
         al.add(1.3);
@@ -62,22 +66,33 @@ public class Main {
         al.sortSelection();
         System.out.println(al);
         System.out.println("Size: "+al.size());
-
-        System.out.println("get: "+ al.get(0));
-        al.set(0,3.2);
         System.out.println("get: "+ al.get(0));
         System.out.println("indexOf: "+al.indexOf(2.2));
+        System.out.println("lastIndexOf: "+al.lastIndexOf(3.1));
         System.out.println("contains: "+ al.contains(4.2));
-        al.sortInsertion();
         System.out.println(al);
+        al.set(0,3.2);
+        System.out.println("multy: " + al.multiply());
+        System.out.println("sum: " + al.sum());
+        System.out.println(al.size()+" Size");
+        System.out.println(al);
+        al.max();
+        System.out.println(al.max()+" max");
+        System.out.println(al.min()+" min");
+        System.out.println("\n Проверка Integer типа, методов");
         AnthonyList<Integer> al3 = new AnthonyList<>();
         al3.add(3);
         al3.add(2);
         al3.add(1);
         al3.add(6);
-        System.out.println("Size AL3:"+al3.size());
         al3.add(5);
         al3.add(4);
+        System.out.println("Size AL3:"+al3.size());
+        System.out.println(al3);
+        System.out.println("max: "+al3.max());
+        System.out.println("min: "+al3.min());
+        System.out.println("sum: "+al3.sum());
+        al3.sortInsertion();
         System.out.println("multy al3: "+al3.multiply());
         System.out.println();
         System.out.println(al3);
@@ -88,25 +103,21 @@ public class Main {
         System.out.println(al3);
         al3.sortInsertion();
         System.out.println(al3);
-
         System.out.println("multy3: " + al3.multiply());
-        System.out.println("multy: " + al.multiply());
-        System.out.println("sum: " + al.sum());
-        System.out.println(al.size()+" Size");
-        System.out.println(al);
-        al.max();
-        System.out.println(al.max()+" max");
-        System.out.println(al.min()+" min");
+        System.out.println("\n Проверка String типа, методов");
         AnthonyList<String> al2 = new AnthonyList<>();
         al2.add("1a");
         al2.add("2a");
         al2.add("3a");
         al2.add("4a");
         al2.add("5a");
+        al2.add("3a");
         al2.addAll(3,Arrays.asList("2n","2l"));
         System.out.println("indexOf al2: "+al2.indexOf("3a"));
+        System.out.println("lastIndexOf al2: "+al2.lastIndexOf("3a"));
         System.out.println(al2);
         System.out.println(al2.sum());
+        System.out.println("\nПроверка работы итератора");
         for (Object item : al) {
             System.out.println(item);
         }
