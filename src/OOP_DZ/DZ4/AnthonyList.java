@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public class AnthonyList<T> implements ArrayListInterface<T> {
-    private static final Object[] empty = {};
+    private  final T[] empty = (T[])new Object[0];
     private int size = 0;
     private T[] list;
 
@@ -25,8 +25,35 @@ public class AnthonyList<T> implements ArrayListInterface<T> {
             }
         } else {
 
-            list = (T[]) empty;
+            list = empty;
         }
+    }
+    public T[] newEmpty(int newObjectLength){
+        try {
+            return (T[])new Object[newObjectLength];
+        } catch (ClassCastException ex) {
+            ex.printStackTrace();
+        }
+        System.out.println("Something wrong with DownCast");
+        return list;
+    }
+    private T tryCatchNumber(Number newNumber){
+        try {
+            return (T)newNumber;
+        } catch (ClassCastException ex) {
+            ex.printStackTrace();
+        }
+        System.out.println("Something wrong with DownCast");
+        return null;
+    }
+    private T tryCatchString(String newString){
+        try {
+            return (T)newString;
+        } catch (ClassCastException ex) {
+            ex.printStackTrace();
+        }
+        System.out.println("Something wrong with DownCast");
+        return null;
     }
 
     @Override
@@ -49,7 +76,7 @@ public class AnthonyList<T> implements ArrayListInterface<T> {
         try {
             size++;
             T[] temp = list;
-            list = (T[]) new Object[temp.length + 1];
+            list = newEmpty(temp.length + 1);
             System.arraycopy(temp, 0, list, 0, temp.length);
             list[list.length - 1] = item;
             return true;
@@ -63,7 +90,7 @@ public class AnthonyList<T> implements ArrayListInterface<T> {
         try {
             size= size+c.toArray().length;
             T[] temp = list;
-            list = (T[]) new Object[temp.length + c.toArray().length];
+            list = newEmpty(temp.length + c.toArray().length);
             System.arraycopy(temp, 0, list, 0, index);
             System.arraycopy(c.toArray(), 0, list, index, c.toArray().length);
             System.arraycopy(temp, index, list, index+c.toArray().length, temp.length-index);
@@ -80,7 +107,7 @@ public class AnthonyList<T> implements ArrayListInterface<T> {
         try {
             size--;
             T[] temp = list;
-            list = (T[]) new Object[temp.length - 1];
+            list = newEmpty(temp.length - 1);
             System.arraycopy(temp, 0, list, 0, index);
             System.arraycopy(temp, index + 1, list, index, temp.length - index - 1);
         } catch (ClassCastException ex) {
@@ -127,21 +154,21 @@ public class AnthonyList<T> implements ArrayListInterface<T> {
             for (T item : this.list) {
                 sum += (Integer) item;
             }
-            return (T) sum;
+            return tryCatchNumber(sum);
         }
         if (list[0] instanceof Double) {
             Double sum = 0.0;
             for (T item : this.list) {
                 sum += (Double) item;
             }
-            return (T) sum;
+            return tryCatchNumber(sum);
         }
         if (list[0] instanceof String) {
             StringBuilder sb = new StringBuilder();
             for (T item : list) {
                 sb.append(item);
             }
-            return (T) sb.toString();
+            return tryCatchString(sb.toString());
         }
         return (T) null;
     }
@@ -152,14 +179,14 @@ public class AnthonyList<T> implements ArrayListInterface<T> {
             for (T item : list) {
                 multiply *= (Integer) item;
             }
-            return (T) multiply;
+            return tryCatchNumber(multiply);
         }
         if (list[0] instanceof Double) {
             Double multiply = 1.0;
             for (T item : list) {
                 multiply *= (Double) item;
             }
-            return (T) multiply;
+            return tryCatchNumber(multiply);
         }
         if (list[0] instanceof String) {
             throw new IllegalArgumentException();
