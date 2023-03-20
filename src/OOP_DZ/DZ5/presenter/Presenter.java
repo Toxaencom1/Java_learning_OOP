@@ -25,17 +25,17 @@ public class Presenter {
             case 3 -> {
                 chooseRecord();
                 int record = view.scan();
-                view.succeeded(service.removeRecord(record), "Can`t find record with your ID");
+                view.succeeded(service.removeRecord(record));
             }
             case 4 -> {
                 chooseRecord();
                 int id = view.scan();
                 view.print("Enter changed data to: ");
-                view.print("\nYour choice: "+service.get(id));
+                view.print("\nYour choice: " + service.get(id));
                 String record = view.scanRecord();
-                view.succeeded(service.changeRecord(id, record), "Can`t find record with your ID");
+                view.succeeded(service.changeRecord(id, record));
             }
-            case 5 -> System.exit(0);
+            case 5 -> view.setFlag(false);
         }
     }
 

@@ -10,9 +10,18 @@ public class RecordsList implements Service {
         this.records = new ArrayList<>();
     }
 
+    public List<Record> getRecords() {
+        return records;
+    }
+
+    public void setRecords(List<Record> records) {
+        this.records = records;
+    }
+
     @Override
     public void addRecord(Record record) {
         records.add(record);
+        setId();
     }
 
     @Override
@@ -36,6 +45,12 @@ public class RecordsList implements Service {
             }
         }
         return false;
+    }
+
+    @Override
+    public void setId() {
+        if (records.size() != 0 & records.size() != 1)
+            records.get(records.size() - 1).setId(records.get(records.size() - 2).getId() + 1);
     }
 
     @Override

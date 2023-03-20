@@ -9,12 +9,24 @@ public class ConsoleUI implements View {
     private Presenter presenter;
     private Scanner scanner;
     private Menu menu;
+    boolean flag;
 
     public ConsoleUI() {
         scanner = new Scanner(System.in);
         menu = new Menu();
+        flag = true;
     }
 
+    public boolean isFlag() {
+        return flag;
+    }
+
+    @Override
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+
+    @Override
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
     }
@@ -22,7 +34,7 @@ public class ConsoleUI implements View {
     @Override
     public void start() {
         System.out.println("Welcome Home User!");
-        while (true) {
+        while (flag) {
             showMenu(menu.getMainMenuList());
             int menuChoice = scan();
             presenter.choice(menuChoice);
@@ -38,9 +50,9 @@ public class ConsoleUI implements View {
 
 
     @Override
-    public void succeeded(boolean isWork, String title) {
+    public void succeeded(boolean isWork) {
         if (!isWork) {
-            System.out.println(title);
+            System.out.println("Can`t find record with your ID");
         } else System.out.println("Success!");
     }
 
