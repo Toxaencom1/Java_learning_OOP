@@ -54,7 +54,7 @@ public class Main {
         return null;
     }
 
-    public static void writeToFile(String data) {
+    private static void writeToFile(String data) {
         try {
             String pathProject = System.getProperty("user.dir");
             String pathFile = pathProject.concat("\\src\\OOP_DZ\\DZ5\\files\\file.json");
