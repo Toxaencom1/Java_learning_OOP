@@ -1,11 +1,11 @@
 package OOP_DZ.DZ5.notebook;
 
 public interface Service {
-    int getMaxId();
+    int lastMaxId();
 
-    String get(int id);
+    String getRecordFromList(int id);
 
-    String getInfo();
+    String getRecordInfo();
 
     void addRecord(Record record);
 
