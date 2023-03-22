@@ -3,23 +3,19 @@ package OOP_DZ.DZ5.notebook;
 import java.util.Date;
 
 public class Record {
-    private int id;
+    private final int id;
     private String createTime;
-    private static int idStart = 0;
     private String record;
 
-    public Record(String record) {
+
+    public Record(String record, int id) {
         this.record = record;
-        this.id = ++idStart;
+        this.id = ++id;
         this.createTime = new Date().toString();
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getCreateTime() {

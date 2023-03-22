@@ -1,7 +1,7 @@
 package OOP_DZ.DZ5.notebook;
 
 public interface Service {
-    void setId();
+    int getMaxId();
 
     String get(int id);
 

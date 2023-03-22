@@ -18,7 +18,7 @@ public class Presenter {
         switch (choice) {
             case 1 -> view.print(service.getInfo());
             case 2 -> {
-                Record record = new Record(view.scanRecord());
+                Record record = new Record(view.scanRecord(), service.getMaxId());
                 service.addRecord(record);
                 view.print("Success!");
             }

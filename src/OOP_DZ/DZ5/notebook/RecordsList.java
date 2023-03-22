@@ -21,7 +21,6 @@ public class RecordsList implements Service {
     @Override
     public void addRecord(Record record) {
         records.add(record);
-        setId();
     }
 
     @Override
@@ -46,11 +45,17 @@ public class RecordsList implements Service {
         }
         return false;
     }
-
     @Override
-    public void setId() {
-        if (records.size() != 0 & records.size() != 1)
-            records.get(records.size() - 1).setId(records.get(records.size() - 2).getId() + 1);
+    public int getMaxId() {
+        int max = 0;
+        if(records.size() != 0){
+            for (Record item :records) {
+                if(item.getId()>max){
+                    max = item.getId();
+                }
+            }
+        }
+        return max;
     }
 
     @Override

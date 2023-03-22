@@ -42,9 +42,7 @@ public class Main {
         String pathFile = pathProject.concat("\\src\\OOP_DZ\\DZ5\\files\\file.json");
         try (FileReader reader = new FileReader(pathFile)) {
             if (new File(pathFile).length() != 0) {
-                Service service = GSON.fromJson(reader, RecordsList.class);
-                service.setId();
-                return service;
+                return GSON.fromJson(reader, RecordsList.class);
             } else {
                 return new RecordsList();
             }
