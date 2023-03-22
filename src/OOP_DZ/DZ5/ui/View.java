@@ -2,8 +2,6 @@ package OOP_DZ.DZ5.ui;
 
 import OOP_DZ.DZ5.presenter.Presenter;
 
-import java.util.List;
-
 public interface View {
     void setPresenter(Presenter presenter);
 
@@ -15,9 +13,17 @@ public interface View {
 
     void print(String text);
 
-    void showMenu(List<String> menu);
-
     void succeeded(boolean isWork);
 
     void setFlag(boolean flag);
+
+    void infoOutput();
+
+    void addRecord();
+
+    void removeRecord();
+
+    void changeRecord();
+
+    void exit();
 }

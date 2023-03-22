@@ -2,23 +2,44 @@ package OOP_DZ.DZ5.ui;
 
 import OOP_DZ.DZ5.presenter.Presenter;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleUI implements View {
     private Presenter presenter;
+    private Validator validator;
     private Scanner scanner;
     private Menu menu;
+
     boolean flag;
 
     public ConsoleUI() {
+        this.menu = new Menu(this);
         scanner = new Scanner(System.in);
-        menu = new Menu();
+        validator = new Validator(scanner);
         flag = true;
     }
 
-    public boolean isFlag() {
-        return flag;
+    public void infoOutput() {
+        presenter.infoOutput();
+    }
+
+    public void addRecord() {
+        presenter.addRecord();
+    }
+
+    @Override
+    public void removeRecord() {
+        presenter.removeRecord();
+    }
+
+    @Override
+    public void changeRecord() {
+        presenter.changeRecord();
+    }
+
+    @Override
+    public void exit() {
+        presenter.exit();
     }
 
     @Override
@@ -35,9 +56,9 @@ public class ConsoleUI implements View {
     public void start() {
         System.out.println("Welcome Home User!");
         while (flag) {
-            showMenu(menu.getMainMenuList());
-            int menuChoice = scan();
-            presenter.choice(menuChoice);
+            menu.showMenu();
+            System.out.print("Your Choice: ");
+            menu.execute(validator.valMenuChoice(scanner.nextLine(), menu.getMenuList().size(), scanner));
         }
     }
 
@@ -45,7 +66,7 @@ public class ConsoleUI implements View {
     public int scan() {
         System.out.print("Your choice: ");
         String choice = scanner.nextLine();
-        return Validator.valInt(choice, scanner);
+        return validator.valInt(choice, scanner);
     }
 
 
@@ -62,16 +83,8 @@ public class ConsoleUI implements View {
     }
 
     @Override
-    public void showMenu(List<String> menu) {
-        System.out.println();
-        for (int i = 0; i < menu.size(); i++) {
-            System.out.printf("%d %s\n", i + 1, menu.get(i));
-        }
-    }
-
-    @Override
     public String scanRecord() {
         System.out.print("Enter new Record: ");
-        return Validator.emergency_exit(scanner.nextLine());
+        return validator.emergency_exit(scanner.nextLine());
     }
 }

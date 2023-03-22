@@ -14,10 +14,6 @@ public class RecordsList implements Service {
         return records;
     }
 
-    public void setRecords(List<Record> records) {
-        this.records = records;
-    }
-
     @Override
     public void addRecord(Record record) {
         records.add(record);
@@ -46,7 +42,7 @@ public class RecordsList implements Service {
         return false;
     }
     @Override
-    public int getMaxId() {
+    public int lastMaxId() {
         int max = 0;
         if(records.size() != 0){
             for (Record item :records) {
@@ -59,7 +55,7 @@ public class RecordsList implements Service {
     }
 
     @Override
-    public String get(int id) {
+    public String getRecordFromList(int id) {
         for (Record item : records) {
             if (item.getId() == id) {
                 return item.getRecord();
@@ -69,11 +65,14 @@ public class RecordsList implements Service {
     }
 
     @Override
-    public String getInfo() {
+    public String getRecordInfo() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n");
-        for (Record item : records) {
-            sb.append(item).append("\n");
+        for (int i = 0; i < records.size(); i++) {
+            sb.append(records.get(i));
+            if (i!=records.size()-1){
+                sb.append("\n");
+            }
         }
         return sb.toString();
     }

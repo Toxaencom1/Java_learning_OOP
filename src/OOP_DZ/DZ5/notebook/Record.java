@@ -22,12 +22,12 @@ public class Record {
         return createTime;
     }
 
-    public void setCreateTime() {
-        this.createTime = getCreateTime() + ", Changed: " + new Date();
-    }
-
     public String getRecord() {
         return record;
+    }
+
+    public void setCreateTime() {
+        this.createTime = getCreateTime() + ", Changed: " + new Date();
     }
 
     public void setRecord(String record) {

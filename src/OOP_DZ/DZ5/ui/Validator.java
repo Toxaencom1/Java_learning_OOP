@@ -3,7 +3,13 @@ package OOP_DZ.DZ5.ui;
 import java.util.Scanner;
 
 public class Validator {
-    public static Integer valMenuChoice(String choice, int till, Scanner scanner) {
+    Scanner scanner;
+
+    public Validator(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public Integer valMenuChoice(String choice, int till, Scanner scanner) {
         while (true) {
             try {
                 emergency_exit(choice);
@@ -20,7 +26,7 @@ public class Validator {
         }
     }
 
-    public static Integer valInt(String choice, Scanner scanner) {
+    public Integer valInt(String choice, Scanner scanner) {
         while (true) {
             try {
                 emergency_exit(choice);
@@ -37,7 +43,7 @@ public class Validator {
         }
     }
 
-    public static double valDouble(String choice, Scanner scanner) {
+    public double valDouble(String choice, Scanner scanner) {
         while (true) {
             try {
                 emergency_exit(choice);
@@ -54,7 +60,7 @@ public class Validator {
         }
     }
 
-    public static String emergency_exit(String string) {
+    public String emergency_exit(String string) {
         if (string.equals("exit")) {
             System.exit(0);
         }

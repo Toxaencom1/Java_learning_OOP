@@ -29,6 +29,7 @@ public class Main {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public static void main(String[] args) {
+
         Service service = readFileJson();
         View view = new ConsoleUI();
         new Presenter(view, service);

@@ -1,20 +1,45 @@
 package OOP_DZ.DZ5.ui;
 
 
+import OOP_DZ.DZ5.ui.commands.*;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class Menu {
-    private final ArrayList<String> mainMenuList;
+    private View view;
 
-    public Menu() {
-        this.mainMenuList = new ArrayList<>(Arrays.asList("Info output", "Add record",
-                "Remove record", "Change record", "Exit"));
+    private final ArrayList<ICommand> menuList;
+
+    public Menu(View view) {
+        this.view = view;
+        this.menuList = new ArrayList<>();
+        menuList.add(new InfoOutput(view));
+        menuList.add(new AddRecord(view));
+        menuList.add(new RemoveRecord(view));
+        menuList.add(new ChangeRecord(view));
+        menuList.add(new Exit(view));
     }
 
+    public View getView() {
+        return view;
+    }
 
-    public ArrayList<String> getMainMenuList() {
-        return mainMenuList;
+    public void execute(int num) {
+        ICommand command = menuList.get(num - 1);
+        command.runCommand();
+    }
+
+    public void showMenu() {
+        int num = 1;
+        System.out.println();
+        for (ICommand item : menuList) {
+            System.out.println(num + " " + item.description());
+            num += 1;
+        }
+    }
+
+    public ArrayList<ICommand> getMenuList() {
+        return menuList;
     }
 }
