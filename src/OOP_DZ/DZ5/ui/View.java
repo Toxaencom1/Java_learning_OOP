@@ -5,6 +5,8 @@ import OOP_DZ.DZ5.presenter.Presenter;
 public interface View {
     void setPresenter(Presenter presenter);
 
+    void setFlag(boolean flag);
+
     int scan();
 
     String scanRecord();
@@ -14,8 +16,6 @@ public interface View {
     void print(String text);
 
     void succeeded(boolean isWork);
-
-    void setFlag(boolean flag);
 
     void infoOutput();
 

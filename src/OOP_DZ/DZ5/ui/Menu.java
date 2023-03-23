@@ -39,7 +39,7 @@ public class Menu {
         }
     }
 
-    public ArrayList<ICommand> getMenuList() {
-        return menuList;
+    public int getMenuListSize() {
+        return menuList.size();
     }
 }

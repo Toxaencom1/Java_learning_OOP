@@ -45,6 +45,7 @@ public class Main {
             if (new File(pathFile).length() != 0) {
                 return GSON.fromJson(reader, RecordsList.class);
             } else {
+
                 return new RecordsList();
             }
         } catch (Exception e) {

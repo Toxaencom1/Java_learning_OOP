@@ -1,7 +1,7 @@
 package OOP_DZ.DZ5.notebook;
 
 public interface Service {
-    int lastMaxId();
+    int startFrom();
 
     String getRecordFromList(int id);
 

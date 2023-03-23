@@ -42,7 +42,7 @@ public class RecordsList implements Service {
         return false;
     }
     @Override
-    public int lastMaxId() {
+    public int startFrom() {
         int max = 0;
         if(records.size() != 0){
             for (Record item :records) {
@@ -67,13 +67,15 @@ public class RecordsList implements Service {
     @Override
     public String getRecordInfo() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n");
-        for (int i = 0; i < records.size(); i++) {
-            sb.append(records.get(i));
-            if (i!=records.size()-1){
-                sb.append("\n");
+        if(records.size()!=0){
+            sb.append("\n");
+            for (int i = 0; i < records.size(); i++) {
+                sb.append(records.get(i));
+                if (i!=records.size()-1){
+                    sb.append("\n");
+                }
             }
-        }
+        } else sb.append("\nFile is Empty");
         return sb.toString();
     }
 }

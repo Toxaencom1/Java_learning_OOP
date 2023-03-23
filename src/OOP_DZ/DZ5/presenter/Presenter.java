@@ -17,7 +17,7 @@ public class Presenter {
         view.print(service.getRecordInfo());
     }
     public void addRecord(){
-        Record record = new Record(view.scanRecord(), service.lastMaxId());
+        Record record = new Record(view.scanRecord(), service.startFrom());
         service.addRecord(record);
         view.print("Success!");
     }
@@ -34,9 +34,9 @@ public class Presenter {
         String record = view.scanRecord();
         view.succeeded(service.changeRecord(id, record));
     }
-    public void exit(){
-        view.setFlag(false);
-    }
+//    public void exit(){
+//        view.setFlag(false);
+//    }
 
     private void chooseRecord() {
         view.print("Choose record id: ");

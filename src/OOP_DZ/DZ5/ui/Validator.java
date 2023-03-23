@@ -9,53 +9,53 @@ public class Validator {
         this.scanner = scanner;
     }
 
-    public Integer valMenuChoice(String choice, int till, Scanner scanner) {
+    public Integer valMenuChoice(String numberFromScanner, int till) {
         while (true) {
             try {
-                emergency_exit(choice);
-                if (Integer.parseInt(choice) > 0 && Integer.parseInt(choice) <= till) {//
-                    return Integer.parseInt(choice);
+                emergency_exit(numberFromScanner);
+                if (Integer.parseInt(numberFromScanner) > 0 && Integer.parseInt(numberFromScanner) <= till) {//
+                    return Integer.parseInt(numberFromScanner);
                 } else {
                     System.out.printf("Enter number from 1 till %s: ", till);
-                    choice = scanner.nextLine();
+                    numberFromScanner = scanner.nextLine();
                 }
             } catch (Exception ex) {
                 System.out.printf("Enter number from 1 till %s: ", till);
-                choice = scanner.nextLine();
+                numberFromScanner = scanner.nextLine();
             }
         }
     }
 
-    public Integer valInt(String choice, Scanner scanner) {
+    public Integer valInt(String numberFromScanner) {
         while (true) {
             try {
-                emergency_exit(choice);
-                if (Integer.parseInt(choice) > -2_147_483_648 && Integer.parseInt(choice) < 2_147_483_647) {//
-                    return Integer.parseInt(choice);
+                emergency_exit(numberFromScanner);
+                if (Integer.parseInt(numberFromScanner) > -2_147_483_648 && Integer.parseInt(numberFromScanner) < 2_147_483_647) {//
+                    return Integer.parseInt(numberFromScanner);
                 } else {
                     System.out.print("Enter number: ");
-                    choice = scanner.nextLine();
+                    numberFromScanner = scanner.nextLine();
                 }
             } catch (Exception ex) {
                 System.out.print("Enter number: ");
-                choice = scanner.nextLine();
+                numberFromScanner = scanner.nextLine();
             }
         }
     }
 
-    public double valDouble(String choice, Scanner scanner) {
+    public double valDouble(String numberFromScanner) {
         while (true) {
             try {
-                emergency_exit(choice);
-                if (Double.parseDouble(choice) > -2_147_483_648.0 && Double.parseDouble(choice) < 2_147_483_647.0) {//
-                    return Double.parseDouble(choice);
+                emergency_exit(numberFromScanner);
+                if (Double.parseDouble(numberFromScanner) > -2_147_483_648.0 && Double.parseDouble(numberFromScanner) < 2_147_483_647.0) {//
+                    return Double.parseDouble(numberFromScanner);
                 } else {
                     System.out.print("Enter real number: ");
-                    choice = scanner.nextLine();
+                    numberFromScanner = scanner.nextLine();
                 }
             } catch (Exception ex) {
                 System.out.print("Enter real number: ");
-                choice = scanner.nextLine();
+                numberFromScanner = scanner.nextLine();
             }
         }
     }

@@ -19,10 +19,12 @@ public class ConsoleUI implements View {
         flag = true;
     }
 
+    @Override
     public void infoOutput() {
         presenter.infoOutput();
     }
 
+    @Override
     public void addRecord() {
         presenter.addRecord();
     }
@@ -39,7 +41,8 @@ public class ConsoleUI implements View {
 
     @Override
     public void exit() {
-        presenter.exit();
+        flag = false;
+//        presenter.exit();
     }
 
     @Override
@@ -58,7 +61,7 @@ public class ConsoleUI implements View {
         while (flag) {
             menu.showMenu();
             System.out.print("Your Choice: ");
-            menu.execute(validator.valMenuChoice(scanner.nextLine(), menu.getMenuList().size(), scanner));
+            menu.execute(validator.valMenuChoice(scanner.nextLine(), menu.getMenuListSize()));
         }
     }
 
@@ -66,9 +69,8 @@ public class ConsoleUI implements View {
     public int scan() {
         System.out.print("Your choice: ");
         String choice = scanner.nextLine();
-        return validator.valInt(choice, scanner);
+        return validator.valInt(choice);
     }
-
 
     @Override
     public void succeeded(boolean isWork) {
