@@ -34,9 +34,6 @@ public class Presenter {
         String record = view.scanRecord();
         view.succeeded(service.changeRecord(id, record));
     }
-//    public void exit(){
-//        view.setFlag(false);
-//    }
 
     private void chooseRecord() {
         view.print("Choose record id: ");

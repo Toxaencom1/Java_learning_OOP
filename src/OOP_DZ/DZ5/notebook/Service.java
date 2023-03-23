@@ -1,9 +1,12 @@
 package OOP_DZ.DZ5.notebook;
 
+import java.util.List;
+
 public interface Service {
     int startFrom();
 
     String getRecordFromList(int id);
+    List<Record> getRecords();
 
     String getRecordInfo();
 
