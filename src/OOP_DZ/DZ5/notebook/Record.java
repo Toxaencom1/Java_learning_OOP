@@ -11,7 +11,7 @@ public class Record {
     public Record(String record, int id) {
         this.record = record;
         this.id = ++id;
-        this.createTime = new Date().toString();
+        this.createTime = "   |Created: " + new Date();
     }
 
     public int getId() {
@@ -22,20 +22,21 @@ public class Record {
         return createTime;
     }
 
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
     public String getRecord() {
         return record;
     }
 
-    public void setCreateTime() {
-        this.createTime = getCreateTime() + ", Changed: " + new Date();
-    }
-
     public void setRecord(String record) {
         this.record = record;
+        this.createTime = createTime + ", Changed: " + new Date();
     }
 
     @Override
     public String toString() {
-        return id + ": " + record + "   |Created: " + createTime;
+        return id + ": " + record + createTime;
     }
 }

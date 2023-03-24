@@ -6,7 +6,7 @@ import OOP_DZ.DZ5.notebook.Service;
 
 import java.io.*;
 
-public class File implements Storage{
+public class File implements Storage {
     private Service service;
 
     public File() {
@@ -18,16 +18,19 @@ public class File implements Storage{
         try {
             String pathProject = System.getProperty("user.dir");
             String taskPath = "\\src\\OOP_DZ\\DZ5\\files\\";
-            String pathFile = pathProject.concat(taskPath+"file2.txt");
+            String pathFile = pathProject.concat(taskPath + "file2.txt");
             File file = new File();
             FileReader fr = new FileReader(pathFile);
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
-            int count= 0;
+            int count = 0;
             while (line != null) {
-                service.addRecord(new Record(line,count));
+                service.addRecord(new Record(line, count));
                 line = reader.readLine();
                 count++;
+            }
+            for (Record item : service.getRecords()) {
+                item.setCreateTime("");
             }
             return service;
         } catch (IOException e) {
@@ -54,6 +57,5 @@ public class File implements Storage{
             e.printStackTrace();
             System.out.println("Not a plan(((");
         }
-//        System.out.println(service.getRecords());
     }
 }

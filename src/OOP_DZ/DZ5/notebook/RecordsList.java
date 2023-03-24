@@ -9,6 +9,7 @@ public class RecordsList implements Service {
     public RecordsList() {
         this.records = new ArrayList<>();
     }
+
     @Override
     public List<Record> getRecords() {
         return records;
@@ -35,18 +36,18 @@ public class RecordsList implements Service {
         for (Record item : records) {
             if (item.getId() == id) {
                 item.setRecord(newRecord);
-                item.setCreateTime();
                 return true;
             }
         }
         return false;
     }
+
     @Override
     public int startFrom() {
         int max = 0;
-        if(records.size() != 0){
-            for (Record item :records) {
-                if(item.getId()>max){
+        if (records.size() != 0) {
+            for (Record item : records) {
+                if (item.getId() > max) {
                     max = item.getId();
                 }
             }
@@ -67,11 +68,11 @@ public class RecordsList implements Service {
     @Override
     public String getRecordInfo() {
         StringBuilder sb = new StringBuilder();
-        if(records.size()!=0){
+        if (records.size() != 0) {
             sb.append("\n");
             for (int i = 0; i < records.size(); i++) {
                 sb.append(records.get(i));
-                if (i!=records.size()-1){
+                if (i != records.size() - 1) {
                     sb.append("\n");
                 }
             }
