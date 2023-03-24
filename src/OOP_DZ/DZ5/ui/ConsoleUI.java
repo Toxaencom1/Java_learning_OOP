@@ -1,20 +1,23 @@
 package OOP_DZ.DZ5.ui;
 
-import OOP_DZ.DZ5.Scanner;
+import OOP_DZ.DZ5.ScannerSingleton;
 import OOP_DZ.DZ5.presenter.Presenter;
 import OOP_DZ.DZ5.ui.menu.Menu;
 import OOP_DZ.DZ5.ui.menu.SimpleMenu;
+
+import java.util.Scanner;
 
 public class ConsoleUI implements View {
     private Presenter presenter;
     private Validator validator;
     private Menu menu;
-
+    private Scanner scanner;
     boolean flag;
 
     public ConsoleUI() {
         this.menu = new SimpleMenu(this);
         validator = new Validator();
+        scanner = ScannerSingleton.getScanner();
         flag = true;
     }
 
@@ -60,14 +63,14 @@ public class ConsoleUI implements View {
         while (flag) {
             menu.showMenu();
             System.out.print("Your Choice: ");
-            menu.execute(validator.valMenuChoice(Scanner.getScanner().nextLine(), menu.getMenuListSize()));
+            menu.execute(validator.valMenuChoice(scanner.nextLine(), menu.getMenuListSize()));
         }
     }
 
     @Override
     public int scan() {
         System.out.print("Your choice: ");
-        String choice = Scanner.getScanner().nextLine();
+        String choice = scanner.nextLine();
         return validator.valInt(choice);
     }
 
@@ -86,6 +89,6 @@ public class ConsoleUI implements View {
     @Override
     public String scanRecord() {
         System.out.print("Enter new Record: ");
-        return validator.emergency_exit(Scanner.getScanner().nextLine());
+        return validator.emergency_exit(scanner.nextLine());
     }
 }

@@ -1,8 +1,15 @@
 package OOP_DZ.DZ5.ui;
 
-import OOP_DZ.DZ5.Scanner;
+import OOP_DZ.DZ5.ScannerSingleton;
+
+import java.util.Scanner;
 
 public class Validator {
+    Scanner scanner;
+
+    public Validator() {
+        this.scanner = ScannerSingleton.getScanner();
+    }
 
     public Integer valMenuChoice(String numberFromScanner, int till) {
         while (true) {
@@ -12,11 +19,11 @@ public class Validator {
                     return Integer.parseInt(numberFromScanner);
                 } else {
                     System.out.printf("Enter number from 1 till %s: ", till);
-                    numberFromScanner = Scanner.getScanner().nextLine();
+                    numberFromScanner = scanner.nextLine();
                 }
             } catch (Exception ex) {
                 System.out.printf("Enter number from 1 till %s: ", till);
-                numberFromScanner = Scanner.getScanner().nextLine();
+                numberFromScanner = scanner.nextLine();
             }
         }
     }
@@ -29,11 +36,11 @@ public class Validator {
                     return Integer.parseInt(numberFromScanner);
                 } else {
                     System.out.print("Enter number: ");
-                    numberFromScanner = Scanner.getScanner().nextLine();
+                    numberFromScanner = scanner.nextLine();
                 }
             } catch (Exception ex) {
                 System.out.print("Enter number: ");
-                numberFromScanner = Scanner.getScanner().nextLine();
+                numberFromScanner = scanner.nextLine();
             }
         }
     }
@@ -46,11 +53,11 @@ public class Validator {
                     return Double.parseDouble(numberFromScanner);
                 } else {
                     System.out.print("Enter real number: ");
-                    numberFromScanner = Scanner.getScanner().nextLine();
+                    numberFromScanner = scanner.nextLine();
                 }
             } catch (Exception ex) {
                 System.out.print("Enter real number: ");
-                numberFromScanner = Scanner.getScanner().nextLine();
+                numberFromScanner = scanner.nextLine();
             }
         }
     }
