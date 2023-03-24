@@ -9,7 +9,7 @@ public class Exit extends Command{
 
     @Override
     public String description() {
-        return "Exit and save";
+        return "Exit";
     }
 
     @Override
