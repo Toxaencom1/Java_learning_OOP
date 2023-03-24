@@ -1,13 +1,8 @@
 package OOP_DZ.DZ5.ui;
 
-import java.util.Scanner;
+import OOP_DZ.DZ5.Scanner;
 
 public class Validator {
-    Scanner scanner;
-
-    public Validator(Scanner scanner) {
-        this.scanner = scanner;
-    }
 
     public Integer valMenuChoice(String numberFromScanner, int till) {
         while (true) {
@@ -17,11 +12,11 @@ public class Validator {
                     return Integer.parseInt(numberFromScanner);
                 } else {
                     System.out.printf("Enter number from 1 till %s: ", till);
-                    numberFromScanner = scanner.nextLine();
+                    numberFromScanner = Scanner.getScanner().nextLine();
                 }
             } catch (Exception ex) {
                 System.out.printf("Enter number from 1 till %s: ", till);
-                numberFromScanner = scanner.nextLine();
+                numberFromScanner = Scanner.getScanner().nextLine();
             }
         }
     }
@@ -34,11 +29,11 @@ public class Validator {
                     return Integer.parseInt(numberFromScanner);
                 } else {
                     System.out.print("Enter number: ");
-                    numberFromScanner = scanner.nextLine();
+                    numberFromScanner = Scanner.getScanner().nextLine();
                 }
             } catch (Exception ex) {
                 System.out.print("Enter number: ");
-                numberFromScanner = scanner.nextLine();
+                numberFromScanner = Scanner.getScanner().nextLine();
             }
         }
     }
@@ -51,11 +46,11 @@ public class Validator {
                     return Double.parseDouble(numberFromScanner);
                 } else {
                     System.out.print("Enter real number: ");
-                    numberFromScanner = scanner.nextLine();
+                    numberFromScanner = Scanner.getScanner().nextLine();
                 }
             } catch (Exception ex) {
                 System.out.print("Enter real number: ");
-                numberFromScanner = scanner.nextLine();
+                numberFromScanner = Scanner.getScanner().nextLine();
             }
         }
     }

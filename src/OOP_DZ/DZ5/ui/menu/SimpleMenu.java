@@ -1,17 +1,18 @@
-package OOP_DZ.DZ5.ui;
+package OOP_DZ.DZ5.ui.menu;
 
 
+import OOP_DZ.DZ5.ui.View;
 import OOP_DZ.DZ5.ui.commands.*;
 
 import java.util.ArrayList;
 
 
-public class Menu {
+public class SimpleMenu implements Menu{
     private View view;
 
     private final ArrayList<ICommand> menuList;
 
-    public Menu(View view) {
+    public SimpleMenu(View view) {
         this.view = view;
         this.menuList = new ArrayList<>();
         menuList.add(new InfoOutput(view));
@@ -21,15 +22,18 @@ public class Menu {
         menuList.add(new Exit(view));
     }
 
+    @Override
     public View getView() {
         return view;
     }
 
+    @Override
     public void execute(int num) {
         ICommand command = menuList.get(num - 1);
         command.runCommand();
     }
 
+    @Override
     public void showMenu() {
         int num = 1;
         System.out.println();
@@ -39,7 +43,9 @@ public class Menu {
         }
     }
 
+    @Override
     public int getMenuListSize() {
         return menuList.size();
     }
 }
+
