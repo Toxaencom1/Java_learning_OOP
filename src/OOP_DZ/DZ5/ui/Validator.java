@@ -64,6 +64,7 @@ public class Validator {
 
     public String emergency_exit(String string) {
         if (string.equals("exit")) {
+            System.out.println("\nEmergency exit without saving data\n");
             System.exit(0);
         }
         return string;

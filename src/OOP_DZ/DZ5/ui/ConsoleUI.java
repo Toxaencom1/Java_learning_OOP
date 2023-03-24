@@ -60,6 +60,8 @@ public class ConsoleUI implements View {
     @Override
     public void start() {
         System.out.println("Welcome Home User!");
+        System.out.println("(Type \"exit\" anywhere for emergency exit without saving data )");
+        System.out.println("(To save data choose exit menu.)");
         while (flag) {
             menu.showMenu();
             System.out.print("Your Choice: ");
