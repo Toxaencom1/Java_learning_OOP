@@ -39,7 +39,7 @@ public class JsonFile implements Storage {
     }
 
     @Override
-    public void write(RecordsList recordsList) {
+    public void write() {
         try {
             Type listType = new TypeToken<SimpleRecordsList>() {
             }.getType();

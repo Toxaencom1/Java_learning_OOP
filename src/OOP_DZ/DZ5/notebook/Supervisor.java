@@ -57,12 +57,12 @@ public class Supervisor implements Service{
     }
 
     @Override
-    public RecordsList read() {
+    public RecordsList readFromFile() {
         return storage.read();
     }
 
     @Override
-    public void write() {
-        storage.write(recordsList);
+    public void writeToFile() {
+        storage.write();
     }
 }

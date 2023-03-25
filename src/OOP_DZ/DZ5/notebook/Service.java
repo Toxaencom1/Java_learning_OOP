@@ -22,8 +22,8 @@ public interface Service {
 
     boolean changeRecord(int id, String newRecord);
 
-    RecordsList read();
+    RecordsList readFromFile();  //задел на возможное будущее этого проекта
 
-    void write();
+    void writeToFile();
 
 }

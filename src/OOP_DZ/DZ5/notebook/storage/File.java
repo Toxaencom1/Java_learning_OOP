@@ -39,7 +39,7 @@ public class File implements Storage {
     }
 
     @Override
-    public void write(RecordsList recordsList) {
+    public void write() {
         try {
             String pathProject = System.getProperty("user.dir");
             String pathFile = pathProject.concat("\\src\\OOP_DZ\\DZ5\\files\\file2.txt");

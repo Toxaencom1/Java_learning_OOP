@@ -42,7 +42,7 @@ public class PresenterMVP implements Presenter{
     }
     @Override
     public void exit(){
-        service.write();
+        service.writeToFile();
         view.setFlag(false);
     }
 
