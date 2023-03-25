@@ -1,4 +1,4 @@
-package OOP_DZ.DZ5.notebook;
+package OOP_DZ.DZ5.notebook.records;
 
 import java.util.Date;
 

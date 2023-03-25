@@ -43,7 +43,7 @@ public class ConsoleUI implements View {
 
     @Override
     public void exit() {
-        flag = false;
+        presenter.exit();
         System.out.println("\nSave data...");
     }
 

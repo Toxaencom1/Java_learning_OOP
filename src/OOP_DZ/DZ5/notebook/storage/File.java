@@ -1,53 +1,52 @@
 package OOP_DZ.DZ5.notebook.storage;
 
-import OOP_DZ.DZ5.notebook.Record;
-import OOP_DZ.DZ5.notebook.RecordsList;
-import OOP_DZ.DZ5.notebook.Service;
+import OOP_DZ.DZ5.notebook.records.Record;
+import OOP_DZ.DZ5.notebook.records.RecordsList;
 
 import java.io.*;
 
 public class File implements Storage {
-    private Service service;
+    public RecordsList recordsList;
 
-    public File() {
-        this.service = new RecordsList();
+    public File(RecordsList recordsList) {
+        this.recordsList = recordsList;
     }
 
+
     @Override
-    public Service read() {
+    public RecordsList read() {
         try {
             String pathProject = System.getProperty("user.dir");
             String taskPath = "\\src\\OOP_DZ\\DZ5\\files\\";
             String pathFile = pathProject.concat(taskPath + "file2.txt");
-            File file = new File();
             FileReader fr = new FileReader(pathFile);
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
             int count = 0;
             while (line != null) {
-                service.addRecord(new Record(line, count));
+                recordsList.addRecord(new Record(line, count));
                 line = reader.readLine();
                 count++;
             }
-            for (Record item : service.getRecords()) {
+            for (Record item : recordsList.getRecords()) {
                 item.setCreateTime("");
             }
-            return service;
+            return recordsList;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new RecordsList();
+        return null;
     }
 
     @Override
-    public void write(Service service) {
+    public void write(RecordsList recordsList) {
         try {
             String pathProject = System.getProperty("user.dir");
             String pathFile = pathProject.concat("\\src\\OOP_DZ\\DZ5\\files\\file2.txt");
             java.io.File file = new java.io.File(pathFile);
             FileWriter fileWriter = new FileWriter(file, false);
             StringBuilder sb = new StringBuilder();
-            for (Record item : service.getRecords()) {
+            for (Record item : recordsList.getRecords()) {
                 sb.append(item.getRecord()).append("\n");
             }
             fileWriter.write(sb.toString());

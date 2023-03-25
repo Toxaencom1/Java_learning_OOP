@@ -1,8 +1,9 @@
 package OOP_DZ.DZ5.notebook.storage;
 
-import OOP_DZ.DZ5.notebook.Service;
+import OOP_DZ.DZ5.notebook.records.RecordsList;
+
 
 public interface Storage {
-    Service read();
-    void write(Service service);
+    RecordsList read();
+    void write(RecordsList recordsList);
 }

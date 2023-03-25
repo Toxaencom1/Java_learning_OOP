@@ -1,36 +1,36 @@
 package OOP_DZ.DZ5.notebook.storage;
 
-import OOP_DZ.DZ5.notebook.RecordsList;
-import OOP_DZ.DZ5.notebook.Service;
+
+import OOP_DZ.DZ5.notebook.records.RecordsList;
+import OOP_DZ.DZ5.notebook.records.SimpleRecordsList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.lang.reflect.Type;
 
-public class JsonFile implements Storage{
+
+public class JsonFile implements Storage {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
-    private Service service;
+    private RecordsList recordsList;
 
-    public JsonFile() {
-        this.service = new RecordsList();
-    }
-
-    public Service getService() {
-        return service;
+    public JsonFile(RecordsList recordsList) {
+        this.recordsList = recordsList;
     }
 
     @Override
-    public Service read() {
+    public RecordsList read() {
         String pathProject = System.getProperty("user.dir");
         String pathFile = pathProject.concat("\\src\\OOP_DZ\\DZ5\\files\\file.json");
         try (FileReader reader = new FileReader(pathFile)) {
             if (new File(pathFile).length() != 0) {
-                return GSON.fromJson(reader, RecordsList.class);
+                return GSON.fromJson(reader, SimpleRecordsList.class);
             } else {
-                return new RecordsList();
+                return recordsList;
             }
         } catch (Exception e) {
             System.out.println("Parsing error " + e);
@@ -39,18 +39,19 @@ public class JsonFile implements Storage{
     }
 
     @Override
-    public void write(Service service) {
+    public void write(RecordsList recordsList) {
         try {
+            Type listType = new TypeToken<SimpleRecordsList>() {
+            }.getType();
             String pathProject = System.getProperty("user.dir");
             String pathFile = pathProject.concat("\\src\\OOP_DZ\\DZ5\\files\\file.json");
             File file = new File(pathFile);
             FileWriter fileWriter = new FileWriter(file, false);
-            fileWriter.write(GSON.toJson(service) + "\n");
+            fileWriter.write(GSON.toJson(recordsList, listType) + "\n");
             fileWriter.flush();
             fileWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Not on plan(((");
         }
     }
 }

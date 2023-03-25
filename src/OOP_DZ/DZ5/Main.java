@@ -1,7 +1,9 @@
 package OOP_DZ.DZ5;
 
+import OOP_DZ.DZ5.notebook.records.RecordsList;
 import OOP_DZ.DZ5.notebook.Service;
-import OOP_DZ.DZ5.notebook.storage.File;
+import OOP_DZ.DZ5.notebook.Supervisor;
+import OOP_DZ.DZ5.notebook.records.SimpleRecordsList;
 import OOP_DZ.DZ5.notebook.storage.JsonFile;
 import OOP_DZ.DZ5.notebook.storage.Storage;
 import OOP_DZ.DZ5.presenter.PresenterMVP;
@@ -37,11 +39,11 @@ https://github.com/Liberate520/homeWork). инструкция на PR в мат
 public class Main {
 
     public static void main(String[] args) {
-        Storage storage = new JsonFile();// есть подмена на простое хранение записей в текстовый файл " * = new File();"
-        Service service = storage.read();
+        RecordsList recordsList = new SimpleRecordsList();
+        Storage storage = new JsonFile(recordsList);  // есть подмена на простое хранение записей в текстовый файл " * = new File();"
+        Service service = new Supervisor(recordsList,storage);
         View view = new ConsoleUI();
         new PresenterMVP(view, service);
         view.start();
-        storage.write(service);
     }
 }

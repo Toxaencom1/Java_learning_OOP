@@ -1,6 +1,6 @@
 package OOP_DZ.DZ5.presenter;
 
-import OOP_DZ.DZ5.notebook.Record;
+import OOP_DZ.DZ5.notebook.records.Record;
 import OOP_DZ.DZ5.notebook.Service;
 import OOP_DZ.DZ5.ui.View;
 
@@ -42,7 +42,8 @@ public class PresenterMVP implements Presenter{
     }
     @Override
     public void exit(){
-        view.exit();
+        service.write();
+        view.setFlag(false);
     }
 
     private void chooseRecord() {

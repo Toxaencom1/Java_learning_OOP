@@ -1,18 +1,23 @@
-package OOP_DZ.DZ5.notebook;
+package OOP_DZ.DZ5.notebook.records;
 
 import java.util.*;
 
-public class RecordsList implements Service {
+public class SimpleRecordsList implements RecordsList {
 
     private List<Record> records;
 
-    public RecordsList() {
+    public SimpleRecordsList() {
         this.records = new ArrayList<>();
     }
 
-    @Override
+
     public List<Record> getRecords() {
         return records;
+    }
+
+    @Override
+    public void setRecords(List<Record> records) {
+        this.records = records;
     }
 
     @Override
